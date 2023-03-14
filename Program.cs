@@ -6,10 +6,10 @@
         {
             // I am welcoming the user and asking for their name.
             String name;
-            Console.WriteLine("\tWelcome To My Te Reo Maori Quiz!\n\t\tI Hope You Enjoy");
-            Console.WriteLine("Please Enter Your Name:");
+            Console.Write("\tWelcome To My Te Reo Maori Quiz!\n\t\tI Hope You Enjoy\n\nPlease enter your name to begin: ");
             name = Console.ReadLine();
-            Console.WriteLine("Hello " + name + ", this is a quiz with 3 levels with 10 questions on each level.");
-        }
+            Console.WriteLine("\nHello " + name + ", this is a te reo maori quiz with 3 levels and 10 questions on each level.");
+        } static void quiz()
+        { Console.WriteLine("boo"); }
     }
 }
