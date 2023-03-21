@@ -47,7 +47,7 @@
             String name;
             Console.Write("\tWelcome To My Te Reo Maori Quiz!\n\t\tI Hope You Enjoy\n\nPlease enter your name to begin: ");
             name = Console.ReadLine();
-            Console.WriteLine("\nHello " + name + ", this is a te reo maori quiz with 3 levels (Easy, Normal, Hard) and 5 questions on each level.\nPlease pick which level you want to do:");
+            Console.WriteLine("\nHello " + name + ", this is a te reo maori quiz with 3 levels (Easy, Normal, Hard) and 5 questions on each level.\nPlease pick which level you want to do: ");
             level1();
         }
         static void level1() 
