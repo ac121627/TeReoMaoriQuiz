@@ -4,51 +4,78 @@
     {
         static void Main(string[] args)
         {
-             /*questions for easy level. 
-               question 1. what is the word for the colour red in te reo maori?
-                            a. whero 
-                            b. kowhai 
-                            c. kikorangi
+            /*QUESTIONS FOR EASY LEVEL: 
+            Q1. what is the word for the colour red in te reo maori?
+            a. whero b. kowhai c. kikorangi d. pango
 
-            question 2. what is the word for canoe in te reo maori?
-            a. kia ora b. whanau c. waka
+            Q2. what is the word for canoe in te reo maori?
+            a. kia ora b. whanau c. waka d. ata marie
 
-            question 3. what is the word for family in te reo maori?
-            a. ma b. pango c. whanau
+            Q3. what is the word for family in te reo maori?
+            a. ma b. pango c. whanau  d. ua
 
-            question 4. what is the word for the colour blue in te reo maori?(ans:kahurangi)
-            a. kahurangi b. kakariki c. mawhero
+            Q4. what is the word for the colour blue in te reo maori?(ans:kahurangi)
+            a. kahurangi b. kakariki c. mawhero d. tekau
 
-            question 5: what is the word for hello in te reo maori?
-            a. parauri b. papura c. kia ora
+            Q5: what is the word for hello in te reo maori?
+            a. parauri b. papura c. kia ora d. ahiahi pai
 
-            QUESTIONS FOR HARD LEVEL.
+            QUESTIONS FOR NORMAL LEVEL:
+            Q1. what is the word for land in maori?
+            a. whenua b. whare c. rangatira d. tangata
 
-            question 1. what is the word for lieutenant in te reo maori?(ans:rutene)
-            a. ringa b. waewae c. rutene
+            Q2: what is "tnagata" in english? (ans: person)
+            a. man b. woman c. people d. children
 
-            question 2. what is 'waewae' in english?(ans:leg)
-            a. stomach b. arm c. leg
+            Q3: what is the word for "hear" in te reo maori?(ans: rongo)
+            a. parauri b. hapa c. whakarongo mai d. rongo 
 
-            question 3. what is the word for read in te reo maori? (ans:panui)
-            a. puku b. whanau c. panui
+            Q4: what is 'you' in maori?(ans: koe)
+            a. koe b. ahau c. matou d. ratou
 
-            question 4. what is 'tuhi' in english? (ans:write)
-            a. pencil b. write c. stomach 
+            Q5: what is the word for group in maori?(ans:roopu)
+            a. koropiko b. ngako c. roopu d. mea atu
 
-            question 5. what is the word for canoe in te reo maori?
-            a. kia ora b. whanau c. waka*/
-            
+            QUESTIONS FOR HARD LEVEL:
+
+            Q1. what is the word for lieutenant in te reo maori?(ans:rutene)
+            a. ringa b. hauhautanga c. rutene d. whanui
+
+            Q2. what is 'waewae' in english?(ans:leg)
+            a. stomach b. arm c. leg d. face
+
+            Q3. what is the word for read in te reo maori? (ans:panui)
+            a. puku b. whanau c. panui d. pene
+
+            Q4. what is 'tuhi' in english? (ans:write)
+            a. pencil b. write c. stomach d. book
+
+            Q5. what is the word for boat in te reo maori?(ans:poti)
+            a. matimati b. waka c. poti d. whangi*/
+
             quiz();
         }// End of Main method.
         static void quiz()
-        { Console.WriteLine();
+        {
             // I am welcoming the user and asking for their name.
-            String name;
+            String name, level;
             Console.Write("\tWelcome To My Te Reo Maori Quiz!\n\t\tI Hope You Enjoy\n\nPlease enter your name to begin: ");
             name = Console.ReadLine();
-            Console.WriteLine("\nHello " + name + ", this is a te reo maori quiz with 3 levels (Easy, Normal, Hard) and 5 questions on each level.\nPlease pick which level you want to do: ");
-            Easy();
+            Console.Write("\nHello " + name + ", this is a te reo maori quiz with 3 levels (Easy, Normal, Hard) and 5 questions on each level.\nPlease press they key 'E' if you want to play the Easy level, press 'N' if you want to play the Normal level or press 'H' if you want to play the Hard level: ");
+            level = Console.ReadLine().ToLower();
+            if (level=="e")
+            {
+                Easy();
+                Console.Clear();
+            }
+            if (level=="n") 
+            {
+                Normal();
+            }
+            if (level=="h") 
+            {
+                Hard();
+            }
         }
         static void Easy()
         {
@@ -77,6 +104,28 @@
             }
 
             Console.ReadKey();
+        }
+        static void Normal()
+        {
+            Console.WriteLine("");
+        }
+        static void Hard()
+        {
+            Console.WriteLine("");
+        }
+        static bool validate(string check)
+        {
+            do
+            {
+                if (check.Contains("1") || check.Contains("2") || check.Contains("3") || check.Contains("4"))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            } while (true);
         }
     }
 }
