@@ -61,8 +61,19 @@
             String name, level;
             Console.Write("\tWelcome To My Te Reo Maori Quiz!\n\t\tI Hope You Enjoy\n\nPlease enter your name to begin: ");
             name = Console.ReadLine();
-            Console.Write("\nHello " + name + ", this is a te reo maori quiz with 3 levels (Easy, Normal, Hard) and 5 questions on each level.\nPlease press they key 'E' if you want to play the Easy level, press 'N' if you want to play the Normal level or press 'H' if you want to play the Hard level: ");
+            while (string.IsNullOrEmpty(name))
+            {
+                Console.WriteLine("Please enter a valid name:");
+                name = Console.ReadLine();
+            }
+            Console.Write("\nHello " + name + ", this is a te reo maori quiz with 3 levels (Easy, Normal, Hard) and 5 questions on each level.\nPlease press they key 'E' if you want to play the Easy level \npress 'N' if you want to play the Normal level \npress 'H' if you want to play the Hard level: ");
             level = Console.ReadLine().ToLower();
+            while (string.IsNullOrEmpty(level)) valid(level);
+            {
+                Console.Write("Please eneter a valid option:");
+                level = Console.ReadLine();
+            }
+            valid(level);
             if (level=="e")
             {
                 Easy();
@@ -91,7 +102,7 @@
                 Console.WriteLine($"{i + 1}. {answers[i]}");
             }
 
-            Console.WriteLine("Enter your answer (1-4): ");
+            Console.Write("Enter your answer (1-4): ");
             userAnswerIndex = int.Parse(Console.ReadLine()) - 1;
 
             if (userAnswerIndex == correctAnswerIndex)
@@ -104,6 +115,89 @@
             }
 
             Console.ReadKey();
+
+            string question1 = "What is the capital of France?";
+            string[] answers1 = { "Berlin", "Paris", "Madrid", "London" };
+            int correctAnswerIndex1 = 1;
+            int userAnswerIndex1;
+
+            Console.WriteLine(question);
+
+            for (int i = 0; i < answers.Length; i++)
+            {
+                Console.WriteLine($"{i + 1}. {answers[i]}");
+            }
+
+            Console.Write("Enter your answer (1-4): ");
+            userAnswerIndex = int.Parse(Console.ReadLine()) - 1;
+
+            if (userAnswerIndex == correctAnswerIndex)
+            {
+                Console.WriteLine("Correct!");
+            }
+            else
+            {
+                Console.WriteLine("Incorrect. The correct answer is " + answers[correctAnswerIndex] + ".");
+            }
+
+            Console.ReadKey();
+            /*Dictionary:
+
+            Dictionary<string, int> ages = new Dictionary<string, int>();
+            ages.Add("Alice", 25);
+            ages.Add("Bob", 30);
+            ages.Add("Charlie", 35);
+
+            Dictionary<string, string> capitals = new Dictionary<string, string>()
+            {
+                {"USA", "Washington, D.C."},
+                {"Japan", "Tokyo"},
+                {"France", "Paris"}
+            };
+
+            Console.WriteLine("Ages:");
+            foreach (KeyValuePair<string, int> pair in ages)
+            {
+                Console.WriteLine(pair.Key + ": " + pair.Value);
+            }
+
+            Console.WriteLine("\nCapitals:");
+            foreach (KeyValuePair<string, string> pair in capitals)
+            {
+                Console.WriteLine(pair.Key + ": " + pair.Value);
+            }
+
+            Console.ReadKey();*/
+
+            /*Listing:
+
+            List<string> fruits = new List<string>() { "apple", "banana", "cherry" };
+            List<int> numbers = new List<int>() { 1, 2, 3, 4, 5 };
+            List<double> prices = new List<double>();
+
+            prices.Add(1.99);
+            prices.Add(2.99);
+            prices.Add(3.99);
+
+            Console.WriteLine("Fruits:");
+            foreach (string fruit in fruits)
+            {
+                Console.WriteLine(fruit);
+            }
+
+            Console.WriteLine("\nNumbers:");
+            foreach (int number in numbers)
+            {
+                Console.WriteLine(number);
+            }
+
+            Console.WriteLine("\nPrices:");
+            foreach (double price in prices)
+            {
+                Console.WriteLine(price);
+            }
+
+            Console.ReadKey();*/
         }
         static void Normal()
         {
@@ -127,5 +221,41 @@
                 }
             } while (true);
         }
-    }
+        static bool valid(string check)
+        {
+            do
+            {
+                if (check.Contains("e") || check.Contains("n") || check.Contains("h"))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            } while (true);
+        }
+        static void userDefinedFunctions()
+        {
+            int a = 10, b = 5;
+            int sum = Add(a, b);
+            Console.WriteLine("{0} + {1} = {2}", a, b, sum);
+
+            double c = 2.5, d = 1.5;
+            double product = Multiply(c, d);
+            Console.WriteLine("{0} * {1} = {2}", c, d, product);
+
+            Console.ReadKey();
+        }
+
+        static int Add(int x, int y)
+        {
+            return x + y;
+        }
+
+        static double Multiply(double x, double y)
+        {
+            return x * y;
+        }
+    }   
 }
