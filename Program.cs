@@ -76,7 +76,6 @@ namespace TeReoMaoriQuiz
                 Console.Write("Please eneter a valid option:");
                 level = Console.ReadLine();
             }
-            validLevel(level);
             if (level == "e")
             {
                 Easy();
@@ -119,7 +118,7 @@ namespace TeReoMaoriQuiz
 
             Console.ReadKey();
 
-            //Dictionary:
+            /*Dictionary:
 
             Dictionary<string, int> ages = new Dictionary<string, int>();
             ages.Add("Alice", 25);
@@ -175,11 +174,55 @@ namespace TeReoMaoriQuiz
                 Console.WriteLine(price);
             }
 
-            Console.ReadKey();
+            Console.ReadKey();*/
         }
         static void Normal()
         {
+            string[] questions = {
+                "What is the capital of France?",
+                "What is the largest organ in the human body?",
+                "Which planet in our solar system is closest to the Sun?",
+                "What is the chemical symbol for gold?",
+                "Who invented the telephone?"
+            };
 
+            string[][] answers = {
+                new string[] { "Berlin", "Paris", "Madrid", "London" },
+                new string[] { "Heart", "Brain", "Skin", "Lungs" },
+                new string[] { "Mercury", "Venus", "Earth", "Mars" },
+                new string[] { "Ag", "Au", "Pt", "Cu" },
+                new string[] { "Alexander Graham Bell", "Thomas Edison", "Nikola Tesla", "Benjamin Franklin" }
+            };
+
+            int[] correctAnswerIndex = { 1, 0, 0, 1, 0 };
+
+            int userAnswerIndex;
+
+            for (int i = 0; i < questions.Length; i++)
+            {
+                Console.WriteLine(questions[i]);
+
+                for (int j = 0; j < answers[i].Length; j++)
+                {
+                    Console.WriteLine($"{j + 1}. {answers[i][j]}");
+                }
+
+                Console.Write("Enter your answer (1-4): ");
+                userAnswerIndex = int.Parse(Console.ReadLine()) - 1;
+
+                if (userAnswerIndex == correctAnswerIndex[i])
+                {
+                    Console.WriteLine("Correct!");
+                }
+                else
+                {
+                    Console.WriteLine("Incorrect. The correct answer is " + answers[i][correctAnswerIndex[i]] + ".");
+                }
+
+                Console.WriteLine();
+            }
+
+            Console.ReadKey();
         }
         static void Hard()
         {
