@@ -1,4 +1,7 @@
-﻿namespace TeReoMaoriQuiz
+﻿using System;
+using System.Collections.Generic;
+
+namespace TeReoMaoriQuiz
 {
     internal class Program
     {
@@ -66,24 +69,24 @@
                 Console.WriteLine("Please enter a valid name:");
                 name = Console.ReadLine();
             }
-            Console.Write("\nHello " + name + ", this is a te reo maori quiz with 3 levels (Easy, Normal, Hard) and 5 questions on each level.\nPlease press they key 'E' if you want to play the Easy level \npress 'N' if you want to play the Normal level \npress 'H' if you want to play the Hard level: ");
+            Console.Write("\nHello " + name + ", this is a te reo maori quiz with 3 levels (Easy, Normal, Hard) and 5 questions on each level.\nEasy level: E\nNormal level: N\nHard level: H\nEnter Your choice here: ");
             level = Console.ReadLine().ToLower();
-            while (string.IsNullOrEmpty(level)) valid(level);
+            while (string.IsNullOrEmpty(level)) ;
             {
                 Console.Write("Please eneter a valid option:");
                 level = Console.ReadLine();
             }
-            valid(level);
-            if (level=="e")
+            validLevel(level);
+            if (level == "e")
             {
                 Easy();
                 Console.Clear();
             }
-            if (level=="n") 
+            if (level == "n")
             {
                 Normal();
             }
-            if (level=="h") 
+            if (level == "h")
             {
                 Hard();
             }
@@ -116,32 +119,7 @@
 
             Console.ReadKey();
 
-            string question1 = "What is the capital of France?";
-            string[] answers1 = { "Berlin", "Paris", "Madrid", "London" };
-            int correctAnswerIndex1 = 1;
-            int userAnswerIndex1;
-
-            Console.WriteLine(question);
-
-            for (int i = 0; i < answers.Length; i++)
-            {
-                Console.WriteLine($"{i + 1}. {answers[i]}");
-            }
-
-            Console.Write("Enter your answer (1-4): ");
-            userAnswerIndex = int.Parse(Console.ReadLine()) - 1;
-
-            if (userAnswerIndex == correctAnswerIndex)
-            {
-                Console.WriteLine("Correct!");
-            }
-            else
-            {
-                Console.WriteLine("Incorrect. The correct answer is " + answers[correctAnswerIndex] + ".");
-            }
-
-            Console.ReadKey();
-            /*Dictionary:
+            //Dictionary:
 
             Dictionary<string, int> ages = new Dictionary<string, int>();
             ages.Add("Alice", 25);
@@ -167,9 +145,9 @@
                 Console.WriteLine(pair.Key + ": " + pair.Value);
             }
 
-            Console.ReadKey();*/
+            Console.ReadKey();
 
-            /*Listing:
+            //Listing:
 
             List<string> fruits = new List<string>() { "apple", "banana", "cherry" };
             List<int> numbers = new List<int>() { 1, 2, 3, 4, 5 };
@@ -197,17 +175,17 @@
                 Console.WriteLine(price);
             }
 
-            Console.ReadKey();*/
+            Console.ReadKey();
         }
         static void Normal()
         {
-            Console.WriteLine("");
+
         }
         static void Hard()
         {
-            Console.WriteLine("");
+
         }
-        static bool validate(string check)
+        static bool validAns(string check)
         {
             do
             {
@@ -221,7 +199,7 @@
                 }
             } while (true);
         }
-        static bool valid(string check)
+        static bool validLevel(string check)
         {
             do
             {
@@ -235,27 +213,40 @@
                 }
             } while (true);
         }
-        static void userDefinedFunctions()
-        {
-            int a = 10, b = 5;
-            int sum = Add(a, b);
-            Console.WriteLine("{0} + {1} = {2}", a, b, sum);
-
-            double c = 2.5, d = 1.5;
-            double product = Multiply(c, d);
-            Console.WriteLine("{0} * {1} = {2}", c, d, product);
-
-            Console.ReadKey();
-        }
-
-        static int Add(int x, int y)
-        {
-            return x + y;
-        }
-
-        static double Multiply(double x, double y)
-        {
-            return x * y;
-        }
-    }   
+    }
 }
+
+/*using System;
+using System.Collections.Generic;
+
+namespace TeReoMaoriQuiz
+{
+    class Program
+    {
+        static void listing()
+{
+    // Set up the quiz levels
+    List<List<Question>> levels = new List<List<Question>>();
+    levels.Add(new List<Question> {
+                new Question("What is the Māori word for hello?", new List<string> { "Kia ora", "Haere rā", "Ka kite anō" }, 0),
+                new Question("What is the Māori word for goodbye?", new List<string> { "Ka kite anō", "Kia ora", "Haere rā" }, 2),
+                new Question("What is the Māori word for thank you?", new List<string> { "Aroha nui", "E noho rā", "Ngā mihi" }, 2),
+                new Question("What is the Māori word for love?", new List<string> { "Aroha", "Whānau", "Kaitiakitanga" }, 0),
+                new Question("What is the Māori word for family?", new List<string> { "Whānau", "Manaakitanga", "Kaitiakitanga" }, 0),
+                new Question("What is the Māori word for guardianship or protection?", new List<string> { "Whānau", "Manaakitanga", "Kaitiakitanga" }, 2)
+            });
+    levels.Add(new List<Question> {
+                new Question("What is the Māori word for water?", new List<string> { "Wai", "Awa", "Moana" }, 0),
+                new Question("What is the Māori word for river?", new List<string> { "Awa", "Wai", "Moana" }, 0),
+                new Question("What is the Māori word for ocean?", new List<string> { "Moana", "Wai", "Awa" }, 0),
+                new Question("What is the Māori word for mountain?", new List<string> { "Maunga", "Papa", "Awa" }, 0),
+                new Question("What is the Māori word for earth?", new List<string> { "Papatūānuku", "Tangaroa", "Tāne" }, 0),
+                new Question("What is the Māori word for sky?", new List<string> { "Rangi", "Tangaroa", "Tāne" }, 0)
+            });
+    levels.Add(new List<Question> {
+                new Question("What is the Māori word for food?", new List<string> { "Kai", "Tī", "Tāniko" }, 0),
+                new Question("What is the Māori word for plant?", new List<string> { "Rākau", "Māra", "Kakahu" }, 1),
+                new Question("What is the Māori word for clothing?", new List<string> { "Kakahu", "Rākau", "Māra" }, 0),
+                new Question("What is the Māori word for weaving?", new List<string> { "Raranga", "Tāniko", "Whakairo" }, 0),
+                new Question("What is the Māori word for carving?", new List<string> { "Whakairo", "Raranga", "Pango" }, 0),
+            });*/
