@@ -63,14 +63,14 @@ namespace TeReoMaoriQuiz
         {
             // I am welcoming the user and asking for their name.
             String name, level;
-            Console.Write("\tWelcome To My Te Reo Maori Quiz!\n\t\tI Hope You Enjoy\n\nPlease enter your name to begin: ");
+            Console.Write("\tWelcome To My Te Reo Māori Quiz!\n\t\tI Hope You Enjoy\n\nPlease enter your name to begin: ");
             name = Console.ReadLine();
             while (string.IsNullOrEmpty(name))
             {
                 Console.WriteLine("Please enter a valid name:");
                 name = Console.ReadLine();
             }
-            Console.Write("\nHello " + name + ", this is a te reo maori quiz with 3 levels (Easy, Normal, Hard) and 5 questions on each level.\nEasy level: E\nNormal level: N\nHard level: H\nEnter Your choice here: ");
+            Console.Write("\nHello " + name + ", this is a Te Reo Māori quiz with 3 levels (Easy, Normal, Hard) and 5 questions on each level.\n\tEasy level(E)\tNormal level (N)\tHard level (H)\n\nEnter Your choice here: ");
             level = Console.ReadLine().ToLower();
             Console.Clear();
             if (level == "e")
