@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 namespace TeReoMaoriQuiz
 {
@@ -71,11 +72,8 @@ namespace TeReoMaoriQuiz
             }
             Console.Write("\nHello " + name + ", this is a te reo maori quiz with 3 levels (Easy, Normal, Hard) and 5 questions on each level.\nEasy level: E\nNormal level: N\nHard level: H\nEnter Your choice here: ");
             level = Console.ReadLine().ToLower();
-            while (string.IsNullOrEmpty(level)) ;
-            {
-                Console.Write("Please eneter a valid option:");
-                level = Console.ReadLine();
-            }
+            Console.Clear();
+            validLevel(level);
             if (level == "e")
             {
                 Easy();
@@ -92,106 +90,68 @@ namespace TeReoMaoriQuiz
         }
         static void Easy()
         {
-            string question = "What is the word for 'red' in Te Reo Maori?";
-            string[] answers = { "Kowhai", "Whero", "Pango", "Ma" };
-            int correctAnswerIndex = 1;
-            int userAnswerIndex;
-
-            Console.WriteLine(question);
-
-            for (int i = 0; i < answers.Length; i++)
-            {
-                Console.WriteLine($"{i + 1}. {answers[i]}");
-            }
-
-            Console.Write("Enter your answer (1-4): ");
-            userAnswerIndex = int.Parse(Console.ReadLine()) - 1;
-
-            if (userAnswerIndex == correctAnswerIndex)
-            {
-                Console.WriteLine("Correct!");
-            }
-            else
-            {
-                Console.WriteLine("Incorrect. The correct answer is " + answers[correctAnswerIndex] + ".");
-            }
-
-            Console.ReadKey();
-
-            /*Dictionary:
-
-            Dictionary<string, int> ages = new Dictionary<string, int>();
-            ages.Add("Alice", 25);
-            ages.Add("Bob", 30);
-            ages.Add("Charlie", 35);
-
-            Dictionary<string, string> capitals = new Dictionary<string, string>()
-            {
-                {"USA", "Washington, D.C."},
-                {"Japan", "Tokyo"},
-                {"France", "Paris"}
+            string[] questions = {
+                "Q1) What is the Māori word for hello?",
+                "Q2) What is the Māori word for family?",
+                "Q3) What is the Māori word for love?",
+                "Q4) What is the Māori word for food?",
+                "Q5) What is the Māori word for mountain?"
             };
 
-            Console.WriteLine("Ages:");
-            foreach (KeyValuePair<string, int> pair in ages)
-            {
-                Console.WriteLine(pair.Key + ": " + pair.Value);
-            }
+            string[][] answers = {
+                new string[] { "Papa", "Kia Ora", "Manaakitanga", "Haere rā" },
+                new string[] { "Whanau", "Waka", "Kikorangi", "Pango" },
+                new string[] { "Aroha", "Ahiahi Pai", "Papura", "Parauri" },
+                new string[] { "Ngako", "Kai", "Mea Atu", "Roopu" },
+                new string[] { "Maunga", "Ua", "Aotearoa", "Koropiko" }
+            };
 
-            Console.WriteLine("\nCapitals:");
-            foreach (KeyValuePair<string, string> pair in capitals)
+            int[] correctAnswerIndex = { 1, 0, 0, 1, 0 };
+
+            int userAnswerIndex;
+
+            for (int i = 0; i < questions.Length; i++)
             {
-                Console.WriteLine(pair.Key + ": " + pair.Value);
+                Console.WriteLine(questions[i]);
+
+                for (int j = 0; j < answers[i].Length; j++)
+                {
+                    Console.WriteLine($"{j + 1}. {answers[i][j]}");
+                }
+
+                Console.Write("Enter your answer (1-4): ");
+                userAnswerIndex = int.Parse(Console.ReadLine()) - 1;
+
+                if (userAnswerIndex == correctAnswerIndex[i])
+                {
+                    Console.WriteLine("Correct!");
+                }
+                else
+                {
+                    Console.WriteLine("Incorrect. The correct answer is " + answers[i][correctAnswerIndex[i]] + ".");
+                }
+
+                Console.WriteLine();
             }
 
             Console.ReadKey();
-
-            //Listing:
-
-            List<string> fruits = new List<string>() { "apple", "banana", "cherry" };
-            List<int> numbers = new List<int>() { 1, 2, 3, 4, 5 };
-            List<double> prices = new List<double>();
-
-            prices.Add(1.99);
-            prices.Add(2.99);
-            prices.Add(3.99);
-
-            Console.WriteLine("Fruits:");
-            foreach (string fruit in fruits)
-            {
-                Console.WriteLine(fruit);
-            }
-
-            Console.WriteLine("\nNumbers:");
-            foreach (int number in numbers)
-            {
-                Console.WriteLine(number);
-            }
-
-            Console.WriteLine("\nPrices:");
-            foreach (double price in prices)
-            {
-                Console.WriteLine(price);
-            }
-
-            Console.ReadKey();*/
         }
         static void Normal()
         {
             string[] questions = {
-                "What is the capital of France?",
-                "What is the largest organ in the human body?",
-                "Which planet in our solar system is closest to the Sun?",
-                "What is the chemical symbol for gold?",
-                "Who invented the telephone?"
+                "Q1) What is the word for land in Māori?",
+                "Q2) What is the Māori word for river?",
+                "Q3) What is the Māori word for hear?",
+                "Q4) What is the Māori word for you?",
+                "Q5) What is the Māori word for earth?"
             };
 
             string[][] answers = {
-                new string[] { "Berlin", "Paris", "Madrid", "London" },
-                new string[] { "Heart", "Brain", "Skin", "Lungs" },
-                new string[] { "Mercury", "Venus", "Earth", "Mars" },
-                new string[] { "Ag", "Au", "Pt", "Cu" },
-                new string[] { "Alexander Graham Bell", "Thomas Edison", "Nikola Tesla", "Benjamin Franklin" }
+                new string[] { "Rangatira", "Whenua", "Whare", "Tangata" },
+                new string[] { "Awa", "Moana", "Wai", "Rangi" },
+                new string[] { "Rongo", "Whakarongo Mai", "Hapa", "Parauri" },
+                new string[] { "Ahau", "Koe", "Matou", "Ratou" },
+                new string[] { "Papatūānuku", "Tangaroa", "Tāne", "Rangi" }
             };
 
             int[] correctAnswerIndex = { 1, 0, 0, 1, 0 };
@@ -226,7 +186,51 @@ namespace TeReoMaoriQuiz
         }
         static void Hard()
         {
+            string[] questions = {
+                "Q1) What is the Māori word for carving?",
+                "Q2) What is the Māori word for weaving?",
+                "Q3) What is the Māori word for clothing?",
+                "Q4) What is the Māori word for plant?",
+                "Q5) What is the Māori word for lieutenant?"
+            };
 
+            string[][] answers = {
+                new string[] { "Tekau", "Whakairo", "Tāniko", "Pango" },
+                new string[] { "Raranga", "Poti", "Moana", "Ngā mihi" },
+                new string[] { "Kakahu", "Māra", "Rākau", "Matimati" },
+                new string[] { "Whangi", "Tipu", "Tī", "Tuhi" },
+                new string[] { "Rutene", "Ringa", "Hauhautanga", "Whanui" }
+            };
+
+            int[] correctAnswerIndex = { 1, 0, 0, 1, 0 };
+
+            int userAnswerIndex;
+
+            for (int i = 0; i < questions.Length; i++)
+            {
+                Console.WriteLine(questions[i]);
+
+                for (int j = 0; j < answers[i].Length; j++)
+                {
+                    Console.WriteLine($"{j + 1}. {answers[i][j]}");
+                }
+
+                Console.Write("Enter your answer (1-4): ");
+                userAnswerIndex = int.Parse(Console.ReadLine()) - 1;
+
+                if (userAnswerIndex == correctAnswerIndex[i])
+                {
+                    Console.WriteLine("Correct!");
+                }
+                else
+                {
+                    Console.WriteLine("Incorrect. The correct answer is " + answers[i][correctAnswerIndex[i]] + ".");
+                }
+
+                Console.WriteLine();
+            }
+
+            Console.ReadKey();
         }
         static bool validAns(string check)
         {
