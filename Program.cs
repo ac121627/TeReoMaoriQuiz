@@ -73,7 +73,6 @@ namespace TeReoMaoriQuiz
             Console.Write("\nHello " + name + ", this is a te reo maori quiz with 3 levels (Easy, Normal, Hard) and 5 questions on each level.\nEasy level: E\nNormal level: N\nHard level: H\nEnter Your choice here: ");
             level = Console.ReadLine().ToLower();
             Console.Clear();
-            validLevel(level);
             if (level == "e")
             {
                 Easy();
@@ -262,38 +261,3 @@ namespace TeReoMaoriQuiz
         }
     }
 }
-
-/*using System;
-using System.Collections.Generic;
-
-namespace TeReoMaoriQuiz
-{
-    class Program
-    {
-        static void listing()
-{
-    // Set up the quiz levels
-    List<List<Question>> levels = new List<List<Question>>();
-    levels.Add(new List<Question> {
-                new Question("What is the Māori word for hello?", new List<string> { "Kia ora", "Haere rā", "Ka kite anō" }, 0),
-                new Question("What is the Māori word for goodbye?", new List<string> { "Ka kite anō", "Kia ora", "Haere rā" }, 2),
-                new Question("What is the Māori word for thank you?", new List<string> { "Aroha nui", "E noho rā", "Ngā mihi" }, 2),
-                new Question("What is the Māori word for love?", new List<string> { "Aroha", "Whānau", "Kaitiakitanga" }, 0),
-                new Question("What is the Māori word for family?", new List<string> { "Whānau", "Manaakitanga", "Kaitiakitanga" }, 0),
-                new Question("What is the Māori word for guardianship or protection?", new List<string> { "Whānau", "Manaakitanga", "Kaitiakitanga" }, 2)
-            });
-    levels.Add(new List<Question> {
-                new Question("What is the Māori word for water?", new List<string> { "Wai", "Awa", "Moana" }, 0),
-                new Question("What is the Māori word for river?", new List<string> { "Awa", "Wai", "Moana" }, 0),
-                new Question("What is the Māori word for ocean?", new List<string> { "Moana", "Wai", "Awa" }, 0),
-                new Question("What is the Māori word for mountain?", new List<string> { "Maunga", "Papa", "Awa" }, 0),
-                new Question("What is the Māori word for earth?", new List<string> { "Papatūānuku", "Tangaroa", "Tāne" }, 0),
-                new Question("What is the Māori word for sky?", new List<string> { "Rangi", "Tangaroa", "Tāne" }, 0)
-            });
-    levels.Add(new List<Question> {
-                new Question("What is the Māori word for food?", new List<string> { "Kai", "Tī", "Tāniko" }, 0),
-                new Question("What is the Māori word for plant?", new List<string> { "Rākau", "Māra", "Kakahu" }, 1),
-                new Question("What is the Māori word for clothing?", new List<string> { "Kakahu", "Rākau", "Māra" }, 0),
-                new Question("What is the Māori word for weaving?", new List<string> { "Raranga", "Tāniko", "Whakairo" }, 0),
-                new Question("What is the Māori word for carving?", new List<string> { "Whakairo", "Raranga", "Pango" }, 0),
-            });*/
