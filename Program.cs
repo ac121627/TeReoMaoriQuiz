@@ -1,94 +1,56 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
+using System.Threading.Tasks.Sources;
 
 namespace TeReoMaoriQuiz
 {
     internal class Program
     {
+        int score = 0;
         static void Main(string[] args)
         {
-            /*QUESTIONS FOR EASY LEVEL: 
-            Q1. what is the word for the colour red in te reo maori?
-            a. whero b. kowhai c. kikorangi d. pango
-
-            Q2. what is the word for canoe in te reo maori?
-            a. kia ora b. whanau c. waka d. ata marie
-
-            Q3. what is the word for family in te reo maori?
-            a. ma b. pango c. whanau  d. ua
-
-            Q4. what is the word for the colour blue in te reo maori?(ans:kahurangi)
-            a. kahurangi b. kakariki c. mawhero d. tekau
-
-            Q5: what is the word for hello in te reo maori?
-            a. parauri b. papura c. kia ora d. ahiahi pai
-
-            QUESTIONS FOR NORMAL LEVEL:
-            Q1. what is the word for land in maori?
-            a. whenua b. whare c. rangatira d. tangata
-
-            Q2: what is "tnagata" in english? (ans: person)
-            a. man b. woman c. people d. children
-
-            Q3: what is the word for "hear" in te reo maori?(ans: rongo)
-            a. parauri b. hapa c. whakarongo mai d. rongo 
-
-            Q4: what is 'you' in maori?(ans: koe)
-            a. koe b. ahau c. matou d. ratou
-
-            Q5: what is the word for group in maori?(ans:roopu)
-            a. koropiko b. ngako c. roopu d. mea atu
-
-            QUESTIONS FOR HARD LEVEL:
-
-            Q1. what is the word for lieutenant in te reo maori?(ans:rutene)
-            a. ringa b. hauhautanga c. rutene d. whanui
-
-            Q2. what is 'waewae' in english?(ans:leg)
-            a. stomach b. arm c. leg d. face
-
-            Q3. what is the word for read in te reo maori? (ans:panui)
-            a. puku b. whanau c. panui d. pene
-
-            Q4. what is 'tuhi' in english? (ans:write)
-            a. pencil b. write c. stomach d. book
-
-            Q5. what is the word for boat in te reo maori?(ans:poti)
-            a. matimati b. waka c. poti d. whangi*/
-
             quiz();
+            Console.WriteLine("\tThank You For Playing My Quiz\n\tHope You Enjoyed!");
         }// End of Main method.
         static void quiz()
         {
-            // I am welcoming the user and asking for their name.
-            String name, level;
+            // I am welcoming the user, asking for their name and asking which level they want to play..
+            String userName, level;
             Console.Write("\tWelcome To My Te Reo Māori Quiz!\n\t\tI Hope You Enjoy\n\nPlease enter your name to begin: ");
-            name = Console.ReadLine();
-            while (string.IsNullOrEmpty(name))
+            userName = Console.ReadLine();
+            while (string.IsNullOrEmpty(userName))
             {
-                Console.WriteLine("Please enter a valid name:");
-                name = Console.ReadLine();
+                Console.Write("Please enter a valid name: ");
+                userName = Console.ReadLine();
             }
-            Console.Write("\nHello " + name + ", this is a Te Reo Māori quiz with 3 levels (Easy, Normal, Hard) and 5 questions on each level.\n\tEasy level(E)\tNormal level (N)\tHard level (H)\n\nEnter Your choice here: ");
+            Console.Write("\nHello " + userName + ", this is a Te Reo Māori quiz with 3 levels (Easy, Normal, Hard) and 5 questions on each level.\n\tEasy level(E)\tNormal level (N)\tHard level (H)\n\nEnter Your choice here: ");
             level = Console.ReadLine().ToLower();
+            while (string.IsNullOrEmpty(level))
+            {
+                Console.Write("Please enter a valid choice: ");
+                level = Console.ReadLine();
+            }
             Console.Clear();
             if (level == "e")
             {
-                Easy();
-                Console.Clear();
+                Easy(userName);
             }
             if (level == "n")
             {
-                Normal();
+                Normal(userName);
             }
             if (level == "h")
             {
-                Hard();
+                Hard(userName);
             }
         }
-        static void Easy()
+        static void Easy(string userName)
         {
+            int score = 0;
+            Console.WriteLine("Welcome To The Easy Level " + userName + ",\nHope You Have Fun!");
             string[] questions = {
                 "Q1) What is the Māori word for hello?",
                 "Q2) What is the Māori word for family?",
@@ -118,7 +80,7 @@ namespace TeReoMaoriQuiz
                     Console.WriteLine($"{j + 1}. {answers[i][j]}");
                 }
 
-                Console.Write("Enter your answer (1-4): ");
+                Console.Write("\nEnter your answer (1-4): ");
                 userAnswerIndex = int.Parse(Console.ReadLine()) - 1;
 
                 if (userAnswerIndex == correctAnswerIndex[i])
@@ -135,8 +97,10 @@ namespace TeReoMaoriQuiz
 
             Console.ReadKey();
         }
-        static void Normal()
+        static void Normal(string userName)
         {
+            int score = 0;
+            Console.WriteLine("Welcome To The Normal Level "+userName+",\nHope You Have Fun!");
             string[] questions = {
                 "Q1) What is the word for land in Māori?",
                 "Q2) What is the Māori word for river?",
@@ -166,7 +130,7 @@ namespace TeReoMaoriQuiz
                     Console.WriteLine($"{j + 1}. {answers[i][j]}");
                 }
 
-                Console.Write("Enter your answer (1-4): ");
+                Console.Write("\nEnter your answer (1-4): ");
                 userAnswerIndex = int.Parse(Console.ReadLine()) - 1;
 
                 if (userAnswerIndex == correctAnswerIndex[i])
@@ -180,11 +144,13 @@ namespace TeReoMaoriQuiz
 
                 Console.WriteLine();
             }
-
+            //score score1 = new[] { 0, 0, };
             Console.ReadKey();
         }
-        static void Hard()
+        static void Hard(string userName)
         {
+            int score = 0;
+            Console.WriteLine("Welcome To The Hard Level " + userName + ",\nHope You Have Fun!");
             string[] questions = {
                 "Q1) What is the Māori word for carving?",
                 "Q2) What is the Māori word for weaving?",
@@ -214,7 +180,7 @@ namespace TeReoMaoriQuiz
                     Console.WriteLine($"{j + 1}. {answers[i][j]}");
                 }
 
-                Console.Write("Enter your answer (1-4): ");
+                Console.Write("\nEnter your answer (1-4): ");
                 userAnswerIndex = int.Parse(Console.ReadLine()) - 1;
 
                 if (userAnswerIndex == correctAnswerIndex[i])
@@ -225,7 +191,7 @@ namespace TeReoMaoriQuiz
                 {
                     Console.WriteLine("Incorrect. The correct answer is " + answers[i][correctAnswerIndex[i]] + ".");
                 }
-
+                
                 Console.WriteLine();
             }
 
