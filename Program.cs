@@ -12,10 +12,10 @@ namespace TeReoMaoriQuiz
         int score = 0;
         static void Main(string[] args)
         {
-            quiz();
+            quiz(check:(""));
             Console.WriteLine("\tThank You For Playing My Quiz\n\tHope You Enjoyed!");
         }// End of Main method.
-        static void quiz()
+        static void quiz(string check)
         {
             // I am welcoming the user, asking for their name and asking which level they want to play..
             String userName, level;
@@ -36,18 +36,18 @@ namespace TeReoMaoriQuiz
             Console.Clear();
             if (level == "e")
             {
-                Easy(userName);
+                Easy(userName, check: 0);
             }
             if (level == "n")
             {
-                Normal(userName);
+                Normal(userName, check:0);
             }
             if (level == "h")
             {
-                Hard(userName);
+                Hard(userName, check:0);
             }
         }
-        static void Easy(string userName)
+        static void Easy(string userName, int check)
         {
             int score = 0;
             Console.WriteLine("Welcome To The Easy Level " + userName + ",\nHope You Have Fun!");
@@ -80,8 +80,12 @@ namespace TeReoMaoriQuiz
                     Console.WriteLine($"{j + 1}. {answers[i][j]}");
                 }
 
-                Console.Write("\nEnter your answer (1-4): ");
-                userAnswerIndex = int.Parse(Console.ReadLine()) - 1;
+                do
+                {
+                    Console.Write("\nEnter your answer (1-4): ");
+                    validAns(check);
+                    userAnswerIndex = int.Parse(Console.ReadLine()) - 1;
+                } while (true);
 
                 if (userAnswerIndex == correctAnswerIndex[i])
                 {
@@ -97,7 +101,7 @@ namespace TeReoMaoriQuiz
 
             Console.ReadKey();
         }
-        static void Normal(string userName)
+        static void Normal(string userName, int check)
         {
             int score = 0;
             Console.WriteLine("Welcome To The Normal Level "+userName+",\nHope You Have Fun!");
@@ -130,8 +134,12 @@ namespace TeReoMaoriQuiz
                     Console.WriteLine($"{j + 1}. {answers[i][j]}");
                 }
 
-                Console.Write("\nEnter your answer (1-4): ");
-                userAnswerIndex = int.Parse(Console.ReadLine()) - 1;
+                do
+                {
+                    Console.Write("\nEnter your answer (1-4): ");
+                    validAns(check);
+                    userAnswerIndex = int.Parse(Console.ReadLine()) - 1;
+                } while (true);
 
                 if (userAnswerIndex == correctAnswerIndex[i])
                 {
@@ -147,7 +155,7 @@ namespace TeReoMaoriQuiz
             //score score1 = new[] { 0, 0, };
             Console.ReadKey();
         }
-        static void Hard(string userName)
+        static void Hard(string userName, int check)
         {
             int score = 0;
             Console.WriteLine("Welcome To The Hard Level " + userName + ",\nHope You Have Fun!");
@@ -180,8 +188,12 @@ namespace TeReoMaoriQuiz
                     Console.WriteLine($"{j + 1}. {answers[i][j]}");
                 }
 
-                Console.Write("\nEnter your answer (1-4): ");
-                userAnswerIndex = int.Parse(Console.ReadLine()) - 1;
+                do
+                {
+                    Console.Write("\nEnter your answer (1-4): ");
+                    validAns(check);
+                    userAnswerIndex = int.Parse(Console.ReadLine()) - 1;
+                } while (true);
 
                 if (userAnswerIndex == correctAnswerIndex[i])
                 {
@@ -197,11 +209,11 @@ namespace TeReoMaoriQuiz
 
             Console.ReadKey();
         }
-        static bool validAns(string check)
+        static bool validAns(int check)
         {
             do
             {
-                if (check.Contains("1") || check.Contains("2") || check.Contains("3") || check.Contains("4"))
+                if (check == 1 || check == 2 || check == 3 || check == 4)
                 {
                     return true;
                 }
@@ -215,7 +227,7 @@ namespace TeReoMaoriQuiz
         {
             do
             {
-                if (check.Contains("e") || check.Contains("n") || check.Contains("h"))
+                if (check.Equals("e") || check.Equals("n") || check.Equals("h"))
                 {
                     return true;
                 }
