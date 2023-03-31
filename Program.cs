@@ -79,24 +79,21 @@ namespace TeReoMaoriQuiz
                 {
                     Console.WriteLine($"{j + 1}. {answers[i][j]}");
                 }
-
-                do
-                {
+                
                     Console.Write("\nEnter your answer (1-4): ");
-                    validAns(check);
                     userAnswerIndex = int.Parse(Console.ReadLine()) - 1;
-                } while (true);
 
                 if (userAnswerIndex == correctAnswerIndex[i])
                 {
                     Console.WriteLine("Correct!");
+                    score++;
                 }
                 else
                 {
                     Console.WriteLine("Incorrect. The correct answer is " + answers[i][correctAnswerIndex[i]] + ".");
                 }
 
-                Console.WriteLine();
+                Console.WriteLine(userName + ", You have scored " + score + "out of 5 on the Easy level.");
             }
 
             Console.ReadKey();
@@ -133,26 +130,23 @@ namespace TeReoMaoriQuiz
                 {
                     Console.WriteLine($"{j + 1}. {answers[i][j]}");
                 }
-
-                do
-                {
-                    Console.Write("\nEnter your answer (1-4): ");
-                    validAns(check);
-                    userAnswerIndex = int.Parse(Console.ReadLine()) - 1;
-                } while (true);
-
+       
+                Console.Write("\nEnter your answer (1-4): ");
+                validAns(check);
+                userAnswerIndex = int.Parse(Console.ReadLine()) - 1;
+                
                 if (userAnswerIndex == correctAnswerIndex[i])
                 {
                     Console.WriteLine("Correct!");
+                    score++;
                 }
                 else
                 {
                     Console.WriteLine("Incorrect. The correct answer is " + answers[i][correctAnswerIndex[i]] + ".");
                 }
 
-                Console.WriteLine();
+                Console.WriteLine(userName + ", You have scored " + score + "out of 5 on the Normal level.");
             }
-            //score score1 = new[] { 0, 0, };
             Console.ReadKey();
         }
         static void Hard(string userName, int check)
@@ -187,24 +181,21 @@ namespace TeReoMaoriQuiz
                 {
                     Console.WriteLine($"{j + 1}. {answers[i][j]}");
                 }
-
-                do
-                {
-                    Console.Write("\nEnter your answer (1-4): ");
-                    validAns(check);
-                    userAnswerIndex = int.Parse(Console.ReadLine()) - 1;
-                } while (true);
+                
+                 Console.Write("\nEnter your answer (1-4): ");
+                 userAnswerIndex = int.Parse(Console.ReadLine()) - 1;        
 
                 if (userAnswerIndex == correctAnswerIndex[i])
                 {
                     Console.WriteLine("Correct!");
+                    score++;
                 }
                 else
                 {
                     Console.WriteLine("Incorrect. The correct answer is " + answers[i][correctAnswerIndex[i]] + ".");
                 }
                 
-                Console.WriteLine();
+                Console.WriteLine(userName+", You have scored "+score+" out of 5 on the Hard level.");
             }
 
             Console.ReadKey();
