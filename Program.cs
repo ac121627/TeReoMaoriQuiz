@@ -4,20 +4,19 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks.Sources;
-
 namespace TeReoMaoriQuiz
 {
     internal class Program
     {
-        int score = 0;
         static void Main(string[] args)
         {
             quiz(check:(""));
-            Console.WriteLine("\tThank You For Playing My Quiz\n\tHope You Enjoyed!");
+            Console.Clear();
+            Console.WriteLine("\tThank You For Playing My Quiz\n\t\tHope You Enjoyed!");
         }// End of Main method.
         static void quiz(string check)
         {
-            // I am welcoming the user, asking for their name and asking which level they want to play..
+            // I am welcoming the user, asking for their name and asking which level they want to play.
             String userName, level;
             Console.Write("\tWelcome To My Te Reo Māori Quiz!\n\t\tI Hope You Enjoy\n\nPlease enter your name to begin: ");
             userName = Console.ReadLine();
@@ -34,15 +33,15 @@ namespace TeReoMaoriQuiz
                 level = Console.ReadLine();
             }
             Console.Clear();
-            if (level == "e")
+            if (level.Equals("e"))
             {
                 Easy(userName, check: 0);
             }
-            if (level == "n")
+            if (level.Equals("n"))
             {
                 Normal(userName, check:0);
             }
-            if (level == "h")
+            if (level.Equals("h"))
             {
                 Hard(userName, check:0);
             }
@@ -50,7 +49,7 @@ namespace TeReoMaoriQuiz
         static void Easy(string userName, int check)
         {
             int score = 0;
-            Console.WriteLine("Welcome To The Easy Level " + userName + ",\nHope You Have Fun!");
+            Console.WriteLine("Welcome To The Easy Level " + userName + ",\nHope You Have Fun!\n");
             string[] questions = {
                 "Q1) What is the Māori word for hello?",
                 "Q2) What is the Māori word for family?",
@@ -93,15 +92,25 @@ namespace TeReoMaoriQuiz
                     Console.WriteLine("Incorrect. The correct answer is " + answers[i][correctAnswerIndex[i]] + ".");
                 }
 
-                Console.WriteLine(userName + ", You have scored " + score + "out of 5 on the Easy level.");
+                Console.WriteLine(userName + ", You have scored"  + score + "out of 5 on the Easy level.");
             }
 
             Console.ReadKey();
+            /*In this code, we first define a question and an array of possible answers. We also specify the
+            index of the correct answer (in this case, 1, since the correct answer is "Kia Ora").
+
+            Next, we display the question and the possible answers using a for loop to iterate over the
+            answers array. We then prompt the user to enter their answer and read their input from the
+            console.
+
+            Finally, we check whether the user's answer index matches the index of the correct answer,
+            and display a message indicating whether the user was correct or not. We use the
+            Console.ReadKey() method to wait for the user to press a key before exiting the program.*/
         }
         static void Normal(string userName, int check)
         {
             int score = 0;
-            Console.WriteLine("Welcome To The Normal Level "+userName+",\nHope You Have Fun!");
+            Console.WriteLine("Welcome To The Normal Level "+userName+",\nHope You Have Fun!\n");
             string[] questions = {
                 "Q1) What is the word for land in Māori?",
                 "Q2) What is the Māori word for river?",
@@ -137,7 +146,7 @@ namespace TeReoMaoriQuiz
                 
                 if (userAnswerIndex == correctAnswerIndex[i])
                 {
-                    Console.WriteLine("Correct!");
+                    Console.WriteLine("Correct!\n");
                     score++;
                 }
                 else
@@ -145,14 +154,14 @@ namespace TeReoMaoriQuiz
                     Console.WriteLine("Incorrect. The correct answer is " + answers[i][correctAnswerIndex[i]] + ".");
                 }
 
-                Console.WriteLine(userName + ", You have scored " + score + "out of 5 on the Normal level.");
+                Console.WriteLine(userName + ", You have scored " + score + " out of 5 on the Normal level.");
             }
             Console.ReadKey();
         }
         static void Hard(string userName, int check)
         {
             int score = 0;
-            Console.WriteLine("Welcome To The Hard Level " + userName + ",\nHope You Have Fun!");
+            Console.WriteLine("Welcome To The Hard Level " + userName + ",\nHope You Have Fun!\n");
             string[] questions = {
                 "Q1) What is the Māori word for carving?",
                 "Q2) What is the Māori word for weaving?",
