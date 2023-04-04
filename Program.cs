@@ -4,17 +4,19 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks.Sources;
+using static System.Formats.Asn1.AsnWriter;
+
 namespace TeReoMaoriQuiz
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            quiz(check:(""));
+            quiz(check: (""));
         }// End of Main method.
         static void quiz(string check)
         {
-            // I am welcoming the user, asking for their name and asking which level they want to play.
+            // I am welcoming the user, asking for their name and asking which level they want to play then taking them to their desired level.
             String userName, level;
             Console.Write("\tWelcome To My Te Reo Māori Quiz!\n\t\tI Hope You Enjoy\n\nPlease enter your name to begin: ");
             userName = Console.ReadLine();
@@ -23,41 +25,49 @@ namespace TeReoMaoriQuiz
                 Console.Write("Please enter a valid name: ");
                 userName = Console.ReadLine();
             }
-            Console.Write("\nHello " + userName + ", this is a Te Reo Māori quiz with 3 levels (Easy, Normal, Hard) and 5 questions on each level.\n\tEasy level (E)\tNormal level (N)\tHard level (H)\n\nEnter Your choice here: ");
+            Console.Write("\nHello " + userName + ", this is a Te Reo Māori quiz with 3 levels (Easy, Normal, Hard) and 5 questions on each level.\n\tEasy level (Press E)\tNormal level (Press N)\tHard level (Press H)\n\nEnter Your choice here: ");
             level = Console.ReadLine().ToLower();
             while (string.IsNullOrEmpty(level))
             {
                 Console.Write("Please enter a valid choice: ");
-                level = Console.ReadLine();
+                level = Console.ReadLine().ToLower();
             }
-            Console.Clear();
-            if (level.Equals("e"))
+            do
             {
-                Easy(userName, check: 0);
-            }
-            else if (level.Equals("n"))
-            {
-                Normal(userName, check:0);
-            }
-            else if (level.Equals("h"))
-            {
-                Hard(userName, check:0);
-            }
-            else
-            {
-                Console.Write("Please enter a valid choice: ");
-            }
-        }
+                if (level.Equals("e") || level.Equals("n") || level.Equals("h"))
+                {
+                    Console.Clear();
+                    if (level.Equals("e"))
+                    {
+                        Easy(userName, check: 0);
+                    }
+                    else if (level.Equals("n"))
+                    {
+                        Normal(userName, check: 0);
+                    }
+                    else if (level.Equals("h")) ;
+                    {
+                        Hard(userName, check: 0);
+                    }
+                }
+                else
+                {
+                    Console.Write("Please enter a valid choice: ");
+                    level = Console.ReadLine();
+                }
+            } while (true);
+
+        }// End of quiz method.
         static void Easy(string userName, int check)
         {
             int score = 0;
             Console.WriteLine("Welcome To The Easy Level " + userName + ",\nHope You Have Fun!\n");
             string[] questions = {
-                "Q1) What is the Māori word for hello?",
-                "Q2) What is the Māori word for family?",
-                "Q3) What is the Māori word for love?",
-                "Q4) What is the Māori word for food?",
-                "Q5) What is the Māori word for mountain?"
+                "Q1) What is the Māori word for Hello?",
+                "Q2) What is the Māori word for Family?",
+                "Q3) What is the Māori word for Love?",
+                "Q4) What is the Māori word for Food?",
+                "Q5) What is the Māori word for Mountain?"
             };
 
             string[][] answers = {
@@ -80,9 +90,9 @@ namespace TeReoMaoriQuiz
                 {
                     Console.WriteLine($"{j + 1}. {answers[i][j]}");
                 }
-                
-                    Console.Write("\nEnter your answer (1-4): ");
-                    userAnswerIndex = int.Parse(Console.ReadLine()) - 1;
+
+                Console.Write("\nEnter your answer (1-4): ");
+                userAnswerIndex = int.Parse(Console.ReadLine()) - 1;
 
                 if (userAnswerIndex == correctAnswerIndex[i])
                 {
@@ -133,20 +143,25 @@ namespace TeReoMaoriQuiz
             answers array. We then prompt the user to enter their answer and read their input from the
             console.
 
-            Finally, we check whether the user's answer index matches the index of the correct answer,
-            and display a message indicating whether the user was correct or not. We use the
-            Console.ReadKey() method to wait for the user to press a key before exiting the program.*/
-        }
+            After that, we check whether the user's answer index matches the index of the correct answer,
+            and display a message indicating whether the user was correct or not. I show their score and I use the
+            Console.ReadKey() method to wait for the user to press a key before continuing to the next question.
+            
+            Finally, afther the user has finished the set of 5 questions I display their score out of 5 and prompt 
+            them to either restart the quiz from the beginning, play the easy level, play the normal level, play the 
+            hard level or exit the quiz.*/
+
+        }// End of Easy method.
         static void Normal(string userName, int check)
         {
             int score = 0;
-            Console.WriteLine("Welcome To The Normal Level "+userName+",\nHope You Have Fun!\n");
+            Console.WriteLine("Welcome To The Normal Level " + userName + ",\nHope You Have Fun!\n");
             string[] questions = {
-                "Q1) What is the word for land in Māori?",
-                "Q2) What is the Māori word for river?",
-                "Q3) What is the Māori word for hear?",
-                "Q4) What is the Māori word for you?",
-                "Q5) What is the Māori word for earth?"
+                "Q1) What is the Māori word for Land?",
+                "Q2) What is the Māori word for River?",
+                "Q3) What is the Māori word for Hear?",
+                "Q4) What is the Māori word for You?",
+                "Q5) What is the Māori word for Earth?"
             };
 
             string[][] answers = {
@@ -169,11 +184,11 @@ namespace TeReoMaoriQuiz
                 {
                     Console.WriteLine($"{j + 1}. {answers[i][j]}");
                 }
-       
+
                 Console.Write("\nEnter your answer (1-4): ");
                 validAns(check);
                 userAnswerIndex = int.Parse(Console.ReadLine()) - 1;
-                
+
                 if (userAnswerIndex == correctAnswerIndex[i])
                 {
                     Console.WriteLine("\nCorrect!\n");
@@ -216,17 +231,17 @@ namespace TeReoMaoriQuiz
                 Console.Clear();
                 Console.WriteLine("\t" + userName + ", Thank You for playing the Quiz\n\tHope You Enjoyed Your time!");
             }
-        }
+        }// End of Normal method.
         static void Hard(string userName, int check)
         {
             int score = 0;
             Console.WriteLine("Welcome To The Hard Level " + userName + ",\nHope You Have Fun!\n");
             string[] questions = {
-                "Q1) What is the Māori word for carving?",
-                "Q2) What is the Māori word for weaving?",
-                "Q3) What is the Māori word for clothing?",
-                "Q4) What is the Māori word for plant?",
-                "Q5) What is the Māori word for lieutenant?"
+                "Q1) What is the Māori word for Carving?",
+                "Q2) What is the Māori word for Weaving?",
+                "Q3) What is the Māori word for Clothing?",
+                "Q4) What is the Māori word for Plant?",
+                "Q5) What is the Māori word for Lieutenant?"
             };
 
             string[][] answers = {
@@ -249,9 +264,10 @@ namespace TeReoMaoriQuiz
                 {
                     Console.WriteLine($"{j + 1}. {answers[i][j]}");
                 }
-                
-                 Console.Write("\nEnter your answer (1-4): ");
-                 userAnswerIndex = int.Parse(Console.ReadLine()) - 1;        
+
+
+                Console.Write("\nEnter your answer (1-4): ");
+                userAnswerIndex = int.Parse(Console.ReadLine()) - 1;
 
                 if (userAnswerIndex == correctAnswerIndex[i])
                 {
@@ -263,18 +279,17 @@ namespace TeReoMaoriQuiz
                     Console.WriteLine("\nIncorrect. The correct answer is " + answers[i][correctAnswerIndex[i]] + ".\n");
                 }
 
-                Console.WriteLine("Your score is: " + score+"\nPress any key to continue to the next question.");
+                Console.WriteLine("Your score is: " + score + "\nPress any key to continue to the next question.");
                 Console.ReadKey();
                 Console.Clear();
-
             }
 
-            Console.WriteLine("\n\tCongratulations! You have completed the Hard level and scored "+ score +" out of 5 right.\n\n\tIf you want to start the quiz all over again press 'R'\n\tIf you want to play the Easy level press 'E'\n\tIf you want to play the Normal level prss 'N'\n\tIf you want to play the Hard level press 'H'\n\tIf you want to exit the quiz press any key.");
+            Console.WriteLine("\n\tCongratulations! You have completed the Hard level and scored"+ score +"out of 5 right.\n\n\tIf you want to start the quiz all over again press 'R'\n\tIf you want to play the Easy level press 'E'\n\tIf you want to play the Normal level prss 'N'\n\tIf you want to play the Hard level press 'H'\n\tIf you want to exit the quiz press any key.");
             String endOfQuiz = Console.ReadLine().ToLower();
             if (endOfQuiz.Equals("e"))
             {
                 Console.Clear();
-                Easy(userName,check);
+                Easy(userName, check);
             }
             else if (endOfQuiz.Equals("n"))
             {
@@ -289,33 +304,19 @@ namespace TeReoMaoriQuiz
             else if (endOfQuiz.Equals("r"))
             {
                 Console.Clear();
-                quiz(check:(""));
+                quiz(check: (""));
             }
             else
             {
                 Console.Clear();
                 Console.WriteLine("\t" + userName + ", Thank You for playing the Quiz\n\tHope You Enjoyed Your time!");
             }
-        }
+        }// End of Hard method.
         static bool validAns(int check)
         {
             do
             {
                 if (check == 1 || check == 2 || check == 3 || check == 4)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            } while (true);
-        }
-        static bool validLevel(string check)
-        {
-            do
-            {
-                if (check.Equals("e") || check.Equals("n") || check.Equals("h"))
                 {
                     return true;
                 }
