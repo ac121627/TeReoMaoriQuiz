@@ -12,9 +12,9 @@ namespace TeReoMaoriQuiz
     {
         static void Main(string[] args)
         {
-            quiz(check: (""));
+            quiz();
         }// End of Main method.
-        static void quiz(string check)
+        static void quiz()
         {
             // I am welcoming the user, asking for their name and asking which level they want to play then taking them to their desired level.
             String userName, level;
@@ -39,17 +39,17 @@ namespace TeReoMaoriQuiz
                     Console.Clear();
                     if (level.Equals("e"))
                     {
-                        Easy(userName, check: 0);
+                        Easy(userName);
                     }
                     else if (level.Equals("n"))
                     {
-                        Normal(userName, check: 0);
+                        Normal(userName);
                     }
-                    else if (level.Equals("h")) ;
+                    else if (level.Equals("h")) 
                     {
-                        Hard(userName, check: 0);
+                        Hard(userName);
                     }
-                }
+                } 
                 else
                 {
                     Console.Write("Please enter a valid choice: ");
@@ -58,7 +58,7 @@ namespace TeReoMaoriQuiz
             } while (true);
 
         }// End of quiz method.
-        static void Easy(string userName, int check)
+        static void Easy(string userName)
         {
             int score = 0;
             Console.WriteLine("Welcome To The Easy Level " + userName + ",\nHope You Have Fun!\n");
@@ -114,22 +114,22 @@ namespace TeReoMaoriQuiz
             if (endOfQuiz.Equals("e"))
             {
                 Console.Clear();
-                Easy(userName, check);
+                Easy(userName);
             }
             else if (endOfQuiz.Equals("n"))
             {
                 Console.Clear();
-                Normal(userName, check);
+                Normal(userName);
             }
             else if (endOfQuiz.Equals("h"))
             {
                 Console.Clear();
-                Hard(userName, check);
+                Hard(userName);
             }
             else if (endOfQuiz.Equals("r"))
             {
                 Console.Clear();
-                quiz(check: (""));
+                quiz();
             }
             else
             {
@@ -152,7 +152,7 @@ namespace TeReoMaoriQuiz
             hard level or to exit the quiz.*/
 
         }// End of Easy method.
-        static void Normal(string userName, int check)
+        static void Normal(string userName)
         {
             int score = 0;
             Console.WriteLine("Welcome To The Normal Level " + userName + ",\nHope You Have Fun!\n");
@@ -208,22 +208,22 @@ namespace TeReoMaoriQuiz
             if (endOfQuiz.Equals("e"))
             {
                 Console.Clear();
-                Easy(userName, check);
+                Easy(userName);
             }
             else if (endOfQuiz.Equals("n"))
             {
                 Console.Clear();
-                Normal(userName, check);
+                Normal(userName);
             }
             else if (endOfQuiz.Equals("h"))
             {
                 Console.Clear();
-                Hard(userName, check);
+                Hard(userName);
             }
             else if (endOfQuiz.Equals("r"))
             {
                 Console.Clear();
-                quiz(check: (""));
+                quiz();
             }
             else
             {
@@ -231,7 +231,7 @@ namespace TeReoMaoriQuiz
                 Console.WriteLine("\t" + userName + ", Thank You for playing the Quiz\n\tHope You Enjoyed Your time!");
             }
         }// End of Normal method.
-        static void Hard(string userName, int check)
+        static void Hard(string userName)
         {
             int score = 0;
             Console.WriteLine("Welcome To The Hard Level " + userName + ",\nHope You Have Fun!\n");
@@ -283,29 +283,29 @@ namespace TeReoMaoriQuiz
                 Console.Clear();
             }
 
-            Console.WriteLine("\n\tCongratulations! You have completed the Hard level and scored " + score + " out of 5 right.\n\n\tIf you want to start the quiz all over again press 'R'\n\n\t\t\t\tIf you want to play the:\n\n\t Easy level press 'E'\t Normal level press 'N'\t Hard level press 'H'\n\n\tIf you want to exit the quiz press any other key.");
+            Console.WriteLine("\n\tCongratulations! You have completed the Hard level and scored " + score + " out of 5 right.\n\n\tIf you want to start the quiz all over again press 'R'\n\n\t\t\t\tIf you want to play the:\n\n\t Easy level press 'E'\t Normal level press 'N'\t Hard level press 'H'\n\n\tIf you want to exit the quiz press 'X'.");
             String endOfQuiz = Console.ReadLine().ToLower();
             if (endOfQuiz.Equals("e"))
             {
                 Console.Clear();
-                Easy(userName, check);
+                Easy(userName);
             }
             else if (endOfQuiz.Equals("n"))
             {
                 Console.Clear();
-                Normal(userName, check);
+                Normal(userName);
             }
             else  if (endOfQuiz.Equals("h"))
             {
                 Console.Clear();
-                Hard(userName, check);
+                Hard(userName);
             }
             else if (endOfQuiz.Equals("r"))
             {
                 Console.Clear();
-                quiz(check: (""));
+                quiz();
             }
-            else if (endOfQuiz!=("n") && endOfQuiz!=("e") && endOfQuiz!=("h") && endOfQuiz!=("r"))
+            else if (endOfQuiz.Equals("x"))
             {
                 Console.Clear();
                 Console.WriteLine("\t" + userName + ", Thank You for playing the Quiz\n\tHope You Enjoyed Your time!");
