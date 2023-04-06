@@ -62,7 +62,7 @@ namespace TeReoMaoriQuiz
         static void Easy(string userName)
         {
             int score = 0;
-            Console.WriteLine("Welcome to the Easy Level, !\n\nIn this quiz, you'll be asked 5 questions about Māori words and phrases. Choose the correct answer from the options provided.\n");
+            Console.WriteLine("Welcome to the Easy Level, "+ userName +"!\n\nIn this quiz, you'll be asked 5 questions about Māori words and phrases. Choose the correct answer from the options provided.\n");
             string[] questions = {
                   "Q1) What is the Māori word for Hello?" ,
                   "Q2) What is the Māori word for Family?" ,
@@ -203,7 +203,7 @@ namespace TeReoMaoriQuiz
         static void Normal(string userName)
         {
             int score = 0;
-            Console.WriteLine("Welcome to the Normal Level, !\n\nIn this quiz, you'll be asked 5 questions about Māori words and phrases. Choose the correct answer from the options provided.\n");
+            Console.WriteLine("Welcome to the Normal Level, "+ userName +"!\n\nIn this quiz, you'll be asked 5 questions about Māori words and phrases. Choose the correct answer from the options provided.\n");
             string[] questions = {
                      "Q1) What is the Māori word for Land?",
                      "Q2) What is the Māori word for River?",
@@ -328,7 +328,7 @@ namespace TeReoMaoriQuiz
         static void Hard(string userName)
         {
             int score = 0;
-            Console.WriteLine("Welcome to the Hard Level, !\n\nIn this quiz, you'll be asked 5 questions about Māori words and phrases. Choose the correct answer from the options provided.\n");
+            Console.WriteLine("Welcome to the Hard Level, "+ userName +"!\n\nIn this quiz, you'll be asked 5 questions about Māori words and phrases. Choose the correct answer from the options provided.\n");
             string[] questions = {
                 "Q1) What is the Māori word for Carving?",
                 "Q2) What is the Māori word for Weaving?",
