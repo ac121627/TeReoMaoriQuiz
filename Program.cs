@@ -22,10 +22,10 @@ namespace TeReoMaoriQuiz
             userName = Console.ReadLine();
             while (string.IsNullOrEmpty(userName))
             {
-                Console.Write("Please enter a valid name: ");
+                Console.Write("Please enter a name with at least 1 character: ");
                 userName = Console.ReadLine();
             }
-            Console.Write("\nHello " + userName + ", this is a Te Reo Māori quiz with 3 levels (Easy, Normal, Hard) and 5 questions on each level.\n\tEasy level (Press E)\tNormal level (Press N)\tHard level (Press H)\n\nEnter Your choice here: ");
+            Console.Write("\nHello " + userName + ", this is a Te Reo Māori quiz with 3 levels (Easy, Normal, Hard) and 5 questions on each level.\n\tEasy level (Press E)\tNormal level (Press N)\t  Hard level (Press H)\n\nEnter Your choice here: ");
             level = Console.ReadLine().ToLower();
             while (string.IsNullOrEmpty(level))
             {
@@ -63,11 +63,11 @@ namespace TeReoMaoriQuiz
             int score = 0;
             Console.WriteLine("Welcome To The Easy Level " + userName + ",\nHope You Have Fun!\n");
             string[] questions = {
-                "Q1) What is the Māori word for Hello?",
-                "Q2) What is the Māori word for Family?",
-                "Q3) What is the Māori word for Love?",
-                "Q4) What is the Māori word for Food?",
-                "Q5) What is the Māori word for Mountain?"
+                  "Q1) What is the Māori word for Hello?" , 
+                  "Q2) What is the Māori word for Family?" ,
+                  "Q3) What is the Māori word for Love?" ,
+                  "Q4) What is the Māori word for Food?" ,
+                  "Q5) What is the Māori word for Mountain?" 
             };
 
             string[][] answers = {
@@ -78,9 +78,9 @@ namespace TeReoMaoriQuiz
                 new string[] { "Maunga", "Ua", "Aotearoa", "Koropiko" }
             };
 
-            int[] correctAnswerIndex = { 1, 0, 0, 1, 0 };
+            string[] correctAnswerIndex = { "b", "a", "a", "b", "a" };
 
-            int userAnswerIndex;
+            string userAnswerIndex;
 
             for (int i = 0; i < questions.Length; i++)
             {
@@ -91,66 +91,67 @@ namespace TeReoMaoriQuiz
                     Console.WriteLine($"{j + 1}. {answers[i][j]}");
                 }
 
-                Console.Write("\nEnter your answer (1-4): ");
-                userAnswerIndex = int.Parse(Console.ReadLine()) - 1;
+                    Console.Write("\nEnter your answer (A-D): ");
+                    userAnswerIndex = Console.ReadLine().ToLower();
 
-                if (userAnswerIndex == correctAnswerIndex[i])
-                {
-                    Console.WriteLine("\nCorrect!\n");
-                    score++;
-                }
-                else
-                {
-                    Console.WriteLine("\nIncorrect. The correct answer is " + answers[i][correctAnswerIndex[i]] + ".\n");
-                }
-
+                    if (userAnswerIndex.Equals(correctAnswerIndex[i]))
+                    {
+                        Console.WriteLine("\nCorrect!\n");
+                        score++;
+                    }
+               
+                    else
+                    {
+                        Console.WriteLine("\nIncorrect. The correct answer is " + correctAnswerIndex[i] + ".\n");
+                    }
+                
                 Console.WriteLine("Your score is: " + score + "\nPress any key to continue to the next question.");
                 Console.ReadKey();
                 Console.Clear();
             }
-
-            Console.WriteLine("\n\tCongratulations! You have completed the Easy level and scored " + score + " out of 5 right.\n\n\tIf you want to start the quiz all over again press 'R'\n\n\t\t\t\tIf you want to play the:\n\n\t Easy level press 'E'\t Normal level press 'N'\t Hard level press 'H'\n\n\tIf you want to exit the quiz press any other key.");
-            String endOfQuiz = Console.ReadLine().ToLower();
-            do
-            {
-                if (endOfQuiz.Equals("e") || endOfQuiz.Equals("n") || endOfQuiz.Equals("h") || endOfQuiz.Equals("r"))
+                Console.WriteLine("\n\tCongratulations! You have completed the Easy level and scored " + score + " out of 5 right.\n\n\tIf you want to start the quiz all over again press 'R'\n\n\t\t\t\tIf you want to play the:\n\n\t Easy level press 'E'\t Normal level press 'N'\t Hard level press 'H'\n\n\tIf you want to exit the quiz press 'X'.");
+                String endOfQuiz = Console.ReadLine().ToLower();
+                do
                 {
-                    if (endOfQuiz.Equals("e"))
+                    if (endOfQuiz.Equals("e") || endOfQuiz.Equals("n") || endOfQuiz.Equals("h") || endOfQuiz.Equals("r") || endOfQuiz.Equals("x"))
                     {
-                        Console.Clear();
-                        Easy(userName);
-                        Environment.Exit(0);
-                    }
-                    else if (endOfQuiz.Equals("n"))
-                    {
-                        Console.Clear();
-                        Normal(userName);
-                        Environment.Exit(0);
-                    }
-                    else if (endOfQuiz.Equals("h"))
-                    {
-                        Console.Clear();
-                        Hard(userName);
-                        Environment.Exit(0);
-                    }
-                    else if (endOfQuiz.Equals("r"))
-                    {
-                        Console.Clear();
-                        quiz();
+                        if (endOfQuiz.Equals("e"))
+                        {
+                            Console.Clear();
+                            Easy(userName);
+                            Environment.Exit(0);
+                        }
+                        else if (endOfQuiz.Equals("n"))
+                        {
+                            Console.Clear();
+                            Normal(userName);
+                            Environment.Exit(0);
+                        }
+                        else if (endOfQuiz.Equals("h"))
+                        {
+                            Console.Clear();
+                            Hard(userName);
+                            Environment.Exit(0);
+                        }
+                        else if (endOfQuiz.Equals("r"))
+                        {
+                            Console.Clear();
+                            quiz();
+                        }
+                        else
+                        {
+                            Console.Clear();
+                            Console.WriteLine("\t" + userName + ", Thank You for playing the Quiz\n\tHope You Enjoyed Your time!");
+                            Environment.Exit(0);
+                        }
                     }
                     else
                     {
-                        Console.Clear();
-                        Console.WriteLine("\t" + userName + ", Thank You for playing the Quiz\n\tHope You Enjoyed Your time!");
-                        Environment.Exit(0);
+                        Console.Write("Please enter a valid choice: ");
+                        endOfQuiz = Console.ReadLine();
                     }
-                }
-                else
-                {
-                    Console.Write("Please enter a valid choice: ");
-                    endOfQuiz = Console.ReadLine();
-                }
-            } while (true);
+                } while (true);
+            
             /*In this code, we first define a question and an array of possible answers. We also specify the
             index of the correct answer (in this case, 1, since the correct answer is "Kia Ora").
 
@@ -218,11 +219,11 @@ namespace TeReoMaoriQuiz
                 Console.Clear();
             }
 
-            Console.WriteLine("\n\tCongratulations! You have completed the Normal level and scored " + score + " out of 5 right.\n\n\tIf you want to start the quiz all over again press 'R'\n\n\t\t\t\tIf you want to play the:\n\n\t Easy level press 'E'\t Normal level press 'N'\t Hard level press 'H'\n\n\tIf you want to exit the quiz press any other key.");
+            Console.WriteLine("\n\tCongratulations! You have completed the Normal level and scored " + score + " out of 5 right.\n\n\tIf you want to start the quiz all over again press 'R'\n\n\t\t\t\tIf you want to play the:\n\n\t Easy level press 'E'\t Normal level press 'N'\t Hard level press 'H'\n\n\tIf you want to exit the quiz press 'X'.");
             String endOfQuiz = Console.ReadLine().ToLower();
             do
             {
-                if (endOfQuiz.Equals("e") || endOfQuiz.Equals("n") || endOfQuiz.Equals("h") || endOfQuiz.Equals("r"))
+                if (endOfQuiz.Equals("e") || endOfQuiz.Equals("n") || endOfQuiz.Equals("h") || endOfQuiz.Equals("r") ||endOfQuiz.Equals("x"))
                 {
                     if (endOfQuiz.Equals("e"))
                     {
@@ -312,11 +313,11 @@ namespace TeReoMaoriQuiz
                 Console.Clear();
             }
 
-            Console.WriteLine("\n\tCongratulations! You have completed the Hard level and scored " + score + " out of 5 right.\n\n\tIf you want to start the quiz all over again press 'R'\n\n\t\t\t\tIf you want to play the:\n\n\t Easy level press 'E'\t Normal level press 'N'\t Hard level press 'H'\n\n\t\tIf you want to exit the quiz press any other key.");
+            Console.WriteLine("\n\tCongratulations! You have completed the Hard level and scored " + score + " out of 5 right.\n\n\tIf you want to start the quiz all over again press 'R'\n\n\t\t\t\tIf you want to play the:\n\n\t Easy level press 'E'\t Normal level press 'N'\t Hard level press 'H'\n\n\t\tIf you want to exit the quiz press 'X'.");
             String endOfQuiz = Console.ReadLine().ToLower();
             do
             {
-                if (endOfQuiz.Equals("e")||endOfQuiz.Equals("n")||endOfQuiz.Equals("h")||endOfQuiz.Equals("r"))
+                if (endOfQuiz.Equals("e") || endOfQuiz.Equals("n") || endOfQuiz.Equals("h") || endOfQuiz.Equals("r") || endOfQuiz.Equals("x"))
                 {
                     if (endOfQuiz.Equals("e"))
                     {
