@@ -128,7 +128,7 @@ namespace TeReoMaoriQuiz
                 Console.ReadKey();
                 Console.Clear();
             }
-            Console.WriteLine($"Congratulations,{userName}! You have completed the Easy Level and scored {score} out of 5.\n");
+            Console.WriteLine($"Congratulations, {userName}! You have completed the Easy Level and scored {score} out of 5.\n");
 
             if (score == 5)
             {
@@ -270,7 +270,7 @@ namespace TeReoMaoriQuiz
                 Console.Clear();
             }
 
-            Console.WriteLine($"Congratulations,{userName}! You have completed the Normal Level and scored {score} out of 5.\n");
+            Console.WriteLine($"Congratulations, {userName}! You have completed the Normal Level and scored {score} out of 5.\n");
 
             if (score == 5)
             {
@@ -394,7 +394,7 @@ namespace TeReoMaoriQuiz
                 Console.ReadKey();
                 Console.Clear();
             }
-            Console.WriteLine($"Congratulations,{userName}! You have completed the Easy Level and scored {score} out of 5.\n");
+            Console.WriteLine($"Congratulations, {userName}! You have completed the Easy Level and scored {score} out of 5.\n");
 
             if (score == 5)
             {
