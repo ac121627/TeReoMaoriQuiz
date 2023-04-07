@@ -134,6 +134,7 @@ namespace TeReoMaoriQuiz
             {
                 Console.WriteLine("Perfect score! Well done!");
             }
+
             // Prompt the user for their next action
             Console.WriteLine("Please choose one of the following options:");
             Console.WriteLine("1. Restart the quiz (type 'R')");
@@ -189,13 +190,13 @@ namespace TeReoMaoriQuiz
             answers array. We then prompt the user to enter their answer and read their input from the
             console.
 
-            After that, the do-while loop keeps asking the user for input until they enter a valid choice. 
+            After that, we use the do-while loop which keeps asking the user for input until they enter a valid choice. 
             The int.TryParse() method is used to convert the user's input to an integer, and the value is checked to 
-            ensure it is within the range of valid choices. If the user enters an invalid choice, they will be prompted to enter a valid choice.
-            and display a message indicating whether the user was correct or not and then show their score. we use the 
-            Console.ReadKey() method to wait for the user to press a key before continuing to the next question.
+            ensure it is within the range of valid choices. If the user enters an invalid choice, they will be prompted to 
+            enter a valid choice. Then we display a message indicating whether the user was correct or not and then show their 
+            score. we use the Console.ReadKey() method to wait for the user to press a key before continuing to the next question.
             
-            Finally, after the user has finished the set of 5 questions I display their score out of 5 and prompt 
+            Finally, after the user has finished the set of 5 questions we display their score out of 5 and prompt 
             them to either restart the quiz from the beginning, play the easy level, play the normal level, play the 
             hard level or to exit the quiz.*/
 
@@ -276,6 +277,7 @@ namespace TeReoMaoriQuiz
             {
                 Console.WriteLine("Perfect score! Well done!");
             }
+
             // Prompt the user for their next action
             Console.WriteLine("Please choose one of the following options:");
             Console.WriteLine("1. Restart the quiz (type 'R')");
@@ -400,6 +402,7 @@ namespace TeReoMaoriQuiz
             {
                 Console.WriteLine("Perfect score! Well done!");
             }
+            
             // Prompt the user for their next action
             Console.WriteLine("Please choose one of the following options:");
             Console.WriteLine("1. Restart the quiz (type 'R')");
@@ -449,5 +452,5 @@ namespace TeReoMaoriQuiz
                 }
             }
         }// End of Hard method.
-    }
-}
+    }// End of internal class Program.
+}// End of my code.
