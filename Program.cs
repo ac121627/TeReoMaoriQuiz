@@ -17,7 +17,7 @@ namespace TeReoMaoriQuiz
         static void quiz()
         {
             // Greet the user and ask for their name
-            Console.WriteLine("\tWelcome to my Te Reo Māori Quiz!");
+            Console.WriteLine("\t\tWelcome to my Te Reo Māori Quiz!");
             Console.Write("\nPlease enter your name to begin: ");
             string userName = Console.ReadLine();
 
