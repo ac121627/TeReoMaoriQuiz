@@ -83,6 +83,8 @@ namespace TeReoMaoriQuiz
 
             int userAnswerIndex;
 
+            bool validInput = false;
+
             for (int i = 0; i < questions.Length; i++)
             {
                 Console.WriteLine(questions[i]);
@@ -92,7 +94,6 @@ namespace TeReoMaoriQuiz
                     Console.WriteLine($"{j + 1}. {answers[i][j]}");
                 }
 
-                bool validInput = false;
                 do
                 {
                     Console.Write("\nEnter your answer (1-4): ");
@@ -225,6 +226,8 @@ namespace TeReoMaoriQuiz
 
             int userAnswerIndex;
 
+            bool validInput = false;
+
             for (int i = 0; i < questions.Length; i++)
             {
                 Console.WriteLine(questions[i]);
@@ -234,7 +237,6 @@ namespace TeReoMaoriQuiz
                     Console.WriteLine($"{j + 1}. {answers[i][j]}");
                 }
 
-                bool validInput = false;
                 do
                 {
                     Console.Write("\nEnter your answer (1-4): ");
@@ -351,6 +353,8 @@ namespace TeReoMaoriQuiz
 
             int userAnswerIndex;
 
+            bool validInput = false;
+
             for (int i = 0; i < questions.Length; i++)
             {
                 Console.WriteLine(questions[i]);
@@ -360,7 +364,6 @@ namespace TeReoMaoriQuiz
                     Console.WriteLine($"{j + 1}. {answers[i][j]}");
                 }
 
-                bool validInput = false;
                 do
                 {
                     Console.Write("\nEnter your answer (1-4): ");
