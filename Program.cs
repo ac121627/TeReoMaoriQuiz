@@ -320,9 +320,9 @@ namespace TeReoMaoriQuiz
         }// End of Hard method.
         static void redoQuiz(string userName)
         {
-            Console.WriteLine("Please choose one of the following options:\n");
+            Console.WriteLine("Please choose one of the following options:");
             Console.WriteLine("Restart the quiz (type 'R')");
-            Console.WriteLine("Play the Easy level again (type 'E')");
+            Console.WriteLine("Play the Easy level (type 'E')");
             Console.WriteLine("Play the Normal level (type 'N')");
             Console.WriteLine("Play the Hard level (type 'H')");
             Console.WriteLine("Quit the program (type 'Q')");
