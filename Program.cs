@@ -137,12 +137,12 @@ namespace TeReoMaoriQuiz
             }
 
             // Prompt the user for their next action
-            Console.WriteLine("Please choose one of the following options:");
-            Console.WriteLine("1. Restart the quiz (type 'R')");
-            Console.WriteLine("2. Play the Easy level again (type 'E')");
-            Console.WriteLine("3. Play the Normal level (type 'N')");
-            Console.WriteLine("4. Play the Hard level (type 'H')");
-            Console.WriteLine("5. Quit the program (type 'Q')");
+            Console.WriteLine("Please choose one of the following options:\n");
+            Console.WriteLine("Restart the quiz (type 'R')");
+            Console.WriteLine("Play the Easy level again (type 'E')");
+            Console.WriteLine("Play the Normal level (type 'N')");
+            Console.WriteLine("Play the Hard level (type 'H')");
+            Console.WriteLine("Quit the program (type 'Q')");
 
             // Get user input and validate it
             string choice = Console.ReadLine().ToLower();
@@ -281,12 +281,12 @@ namespace TeReoMaoriQuiz
             }
 
             // Prompt the user for their next action
-            Console.WriteLine("Please choose one of the following options:");
-            Console.WriteLine("1. Restart the quiz (type 'R')");
-            Console.WriteLine("2. Play the Easy level (type 'E')");
-            Console.WriteLine("3. Play the Normal level again (type 'N')");
-            Console.WriteLine("4. Play the Hard level (type 'H')");
-            Console.WriteLine("5. Quit the program (type 'Q')");
+            Console.WriteLine("Please choose one of the following options:\n");
+            Console.WriteLine("Restart the quiz (type 'R')");
+            Console.WriteLine("Play the Easy level (type 'E')");
+            Console.WriteLine("Play the Normal level again (type 'N')");
+            Console.WriteLine("Play the Hard level (type 'H')");
+            Console.WriteLine("Quit the program (type 'Q')");
 
             // Get user input and validate it
             string choice = Console.ReadLine().ToLower();
@@ -405,14 +405,13 @@ namespace TeReoMaoriQuiz
             {
                 Console.WriteLine("Perfect score! Well done!");
             }
-            
-            // Prompt the user for their next action
-            Console.WriteLine("Please choose one of the following options:");
-            Console.WriteLine("1. Restart the quiz (type 'R')");
-            Console.WriteLine("2. Play the Easy level (type 'E')");
-            Console.WriteLine("3. Play the Normal level (type 'N')");
-            Console.WriteLine("4. Play the Hard level again (type 'H')");
-            Console.WriteLine("5. Quit the program (type 'Q')");
+
+            Console.WriteLine("Please choose one of the following options:\n");
+            Console.WriteLine("Restart the quiz (type 'R')");
+            Console.WriteLine("Play the Easy level (type 'E')");
+            Console.WriteLine("Play the Normal level (type 'N')");
+            Console.WriteLine("Play the Hard level again (type 'H')");
+            Console.WriteLine("Quit the program (type 'Q')");
 
             // Get user input and validate it
             string choice = Console.ReadLine().ToLower();
