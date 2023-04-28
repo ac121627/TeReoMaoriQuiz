@@ -61,9 +61,13 @@ namespace TeReoMaoriQuiz
         }// End of quiz method.
         static void Easy(string userName)
         {
-            // Declaring all my variables 
+            // Initialize the variable "score" and set it to 0
             int score = 0;
-            Console.WriteLine("Welcome to the Easy Level, "+ userName +"!\n\nIn this quiz, you'll be asked 5 questions about Māori words and phrases. Choose the correct answer from the options provided.\n");
+
+            // Print a welcome message to the screen, using the "userName" parameter
+            Console.WriteLine("Welcome to the Easy Level, " + userName + "!\n\nIn this quiz, you'll be asked 5 questions about Māori words and phrases. Choose the correct answer from the options provided.\n");
+
+            // Declare an array called "questions" that contains the quiz questions
             string[] questions = {
                   "Q1) What is the Māori word for Hello?" ,
                   "Q2) What is the Māori word for Family?" ,
@@ -72,6 +76,7 @@ namespace TeReoMaoriQuiz
                   "Q5) What is the Māori word for Mountain?"
             };
 
+            // Declare a 2-dimensional array called "answers" that contains the answer choices for each question
             string[][] answers = {
                 new string[] { "Papa", "Kia Ora", "Manaakitanga", "Haere rā" },
                 new string[] { "Whanau", "Waka", "Kikorangi", "Pango" },
@@ -80,21 +85,28 @@ namespace TeReoMaoriQuiz
                 new string[] { "Maunga", "Ua", "Aotearoa", "Koropiko" }
             };
 
+            // Declare an array called "correctAnswerIndex" that contains the index of the correct answer for each question
             int[] correctAnswerIndex = { 1, 0, 0, 1, 0 };
 
+            // Declare a variable called "userAnswerIndex" to store the user's answer
             int userAnswerIndex;
 
+            // Declare a variable called "validInput" to ensure the user enters a valid answer
             bool validInput = false;
 
+            // Loop through each question in the quiz
             for (int i = 0; i < questions.Length; i++)
             {
+                // Print the current question to the screen
                 Console.WriteLine(questions[i]);
 
+                // Loop through each answer choice for the current question and print them to the console
                 for (int j = 0; j < answers[i].Length; j++)
                 {
                     Console.WriteLine($"{j + 1}. {answers[i][j]}");
                 }
 
+                // Ask the user to enter their answer and validate their input
                 do
                 {
                     Console.Write("\nEnter your answer (1-4): ");
@@ -116,6 +128,7 @@ namespace TeReoMaoriQuiz
 
                 } while (!validInput);
 
+                // Check if the user's answer is correct and update the score accordingly
                 if (userAnswerIndex == correctAnswerIndex[i])
                 {
                     Console.WriteLine("\nCorrect!\n");
@@ -127,7 +140,7 @@ namespace TeReoMaoriQuiz
                 }
 
                 Console.WriteLine("Your score is: " + score);
-                System.Threading.Thread.Sleep(2000);
+                System.Threading.Thread.Sleep(1000);
                 Console.Clear();
             }
             Console.WriteLine($"Congratulations, {userName}! You have completed the Easy Level and scored {score} out of 5.\n");
@@ -136,39 +149,36 @@ namespace TeReoMaoriQuiz
             {
                 Console.WriteLine("Perfect score! Well done!");
             }
+            // Asking the user if they want to play the quiz again, play any other levels or quit the program
+            RestartMenu(userName);
 
-            redoQuiz(userName);
+            /*In this code, we first define a question and an array of possible answers. We also specify the index of the correct answer (in this case, 1, since the correct answer is "Kia Ora").
 
-            /*In this code, we first define a question and an array of possible answers. We also specify the
-            index of the correct answer (in this case, 1, since the correct answer is "Kia Ora").
+            Next, we display the question and the possible answers using a for loop to iterate over the answers array. We then prompt the user to enter their answer and read their input from the console.
 
-            Next, we display the question and the possible answers using a for loop to iterate over the
-            answers array. We then prompt the user to enter their answer and read their input from the
-            console.
-
-            After that, we use the do-while loop which keeps asking the user for input until they enter a valid choice. 
-            The int.TryParse() method is used to convert the user's input to an integer, and the value is checked to 
-            ensure it is within the range of valid choices. If the user enters an invalid choice, they will be prompted to 
-            enter a valid choice. Then we display a message indicating whether the user was correct or not and then show their 
-            score. we use the Console.ReadKey() method to wait for the user to press a key before continuing to the next question.
+            After that, we use the do-while loop which keeps asking the user for input until they enter a valid choice. The int.TryParse() method is used to convert the user's input to an integer, and the value is checked to ensure it is within the range of valid choices. If the user enters an invalid choice, they will be prompted to enter a valid choice. Then we display a message indicating whether the user was correct or not and then show their score.
             
-            Finally, after the user has finished the set of 5 questions we display their score out of 5 and prompt 
-            them to either restart the quiz from the beginning, play the easy level, play the normal level, play the 
-            hard level or to exit the quiz.*/
+            At the end of the quiz, the user's score out of 5 is displayed, and they are given the option to restart the quiz, play another level, or exit the program.*/
 
         }// End of Easy method.
         static void Normal(string userName)
         {
+            // Initialize the variable "score" and set it to 0
             int score = 0;
-            Console.WriteLine("Welcome to the Normal Level, "+ userName +"!\n\nIn this quiz, you'll be asked 5 questions about Māori words and phrases. Choose the correct answer from the options provided.\n");
+
+            // Print a welcome message to the screen, using the "userName" parameter
+            Console.WriteLine("Welcome to the Normal Level, " + userName + "!\n\nIn this quiz, you'll be asked 5 questions about Māori words and phrases. Choose the correct answer from the options provided.\n");
+
+            // Declare an array called "questions" that contains the quiz questions
             string[] questions = {
-                     "Q1) What is the Māori word for Land?",
-                     "Q2) What is the Māori word for River?",
-                     "Q3) What is the Māori word for Hear?",
-                     "Q4) What is the Māori word for You?",
-                     "Q5) What is the Māori word for Earth?"
+               "Q1) What is the Māori word for Land?",
+               "Q2) What is the Māori word for River?",
+               "Q3) What is the Māori word for Hear?",
+               "Q4) What is the Māori word for You?",
+               "Q5) What is the Māori word for Earth?"
             };
 
+            // Declare a 2-dimensional array called "answers" that contains the answer choices for each question
             string[][] answers = {
                  new string[] { "Rangatira", "Whenua", "Whare", "Tangata" },
                  new string[] { "Awa", "Moana", "Wai", "Rangi" },
@@ -177,21 +187,28 @@ namespace TeReoMaoriQuiz
                  new string[] { "Papatūānuku", "Tangaroa", "Tāne", "Rangi" }
             };
 
+            // Declare an array called "correctAnswerIndex" that contains the index of the correct answer for each question
             int[] correctAnswerIndex = { 1, 0, 0, 1, 0 };
 
+            // Declare a variable called "userAnswerIndex" to store the user's answer
             int userAnswerIndex;
 
+            // Declare a variable called "validInput" to ensure the user enters a valid answer
             bool validInput = false;
 
+            // Loop through each question in the quiz
             for (int i = 0; i < questions.Length; i++)
             {
+                // Print the current question to the screen
                 Console.WriteLine(questions[i]);
 
+                // Loop through each answer choice for the current question and print them to the console
                 for (int j = 0; j < answers[i].Length; j++)
                 {
                     Console.WriteLine($"{j + 1}. {answers[i][j]}");
                 }
 
+                // Ask the user to enter their answer and validate their input
                 do
                 {
                     Console.Write("\nEnter your answer (1-4): ");
@@ -213,6 +230,7 @@ namespace TeReoMaoriQuiz
 
                 } while (!validInput);
 
+                // Check if the user's answer is correct and update the score accordingly
                 if (userAnswerIndex == correctAnswerIndex[i])
                 {
                     Console.WriteLine("\nCorrect!\n");
@@ -224,7 +242,7 @@ namespace TeReoMaoriQuiz
                 }
 
                 Console.WriteLine("Your score is: " + score);
-                System.Threading.Thread.Sleep(2000); 
+                System.Threading.Thread.Sleep(1000);
                 Console.Clear();
             }
 
@@ -235,13 +253,18 @@ namespace TeReoMaoriQuiz
                 Console.WriteLine("Perfect score! Well done!");
             }
 
-            redoQuiz(userName);
+            RestartMenu(userName);
 
         }// End of Normal method.
         static void Hard(string userName)
         {
+            // Initialize the variable "score" and set it to 0
             int score = 0;
-            Console.WriteLine("Welcome to the Hard Level, "+ userName +"!\n\nIn this quiz, you'll be asked 5 questions about Māori words and phrases. Choose the correct answer from the options provided.\n");
+
+            // Print a welcome message to the screen, using the "userName" parameter
+            Console.WriteLine("Welcome to the Hard Level, " + userName + "!\n\nIn this quiz, you'll be asked 5 questions about Māori words and phrases. Choose the correct answer from the options provided.\n");
+
+            // Declare an array called "questions" that contains the quiz questions
             string[] questions = {
                 "Q1) What is the Māori word for Carving?",
                 "Q2) What is the Māori word for Weaving?",
@@ -250,6 +273,7 @@ namespace TeReoMaoriQuiz
                 "Q5) What is the Māori word for Lieutenant?"
             };
 
+            // Declare a 2-dimensional array called "answers" that contains the answer choices for each question
             string[][] answers = {
                 new string[] { "Tekau", "Whakairo", "Tāniko", "Pango" },
                 new string[] { "Raranga", "Poti", "Moana", "Ngā mihi" },
@@ -258,21 +282,28 @@ namespace TeReoMaoriQuiz
                 new string[] { "Rutene", "Ringa", "Hauhautanga", "Whanui" }
             };
 
+            // Declare an array called "correctAnswerIndex" that contains the index of the correct answer for each question
             int[] correctAnswerIndex = { 1, 0, 0, 1, 0 };
 
+            // Declare a variable called "userAnswerIndex" to store the user's answer
             int userAnswerIndex;
 
+            // Declare a boolean variable called "validInput" to ensure the user enters a valid answer
             bool validInput = false;
 
+            // Loop through each question in the quiz
             for (int i = 0; i < questions.Length; i++)
             {
+                // Print the current question to the screen
                 Console.WriteLine(questions[i]);
 
+                // Loop through each answer choice for the current question and print them to the console
                 for (int j = 0; j < answers[i].Length; j++)
                 {
                     Console.WriteLine($"{j + 1}. {answers[i][j]}");
                 }
 
+                // Ask the user to enter their answer and validate their input
                 do
                 {
                     Console.Write("\nEnter your answer (1-4): ");
@@ -294,6 +325,7 @@ namespace TeReoMaoriQuiz
 
                 } while (!validInput);
 
+                // Check if the user's answer is correct and update the score accordingly
                 if (userAnswerIndex == correctAnswerIndex[i])
                 {
                     Console.WriteLine("\nCorrect!\n");
@@ -305,9 +337,10 @@ namespace TeReoMaoriQuiz
                 }
 
                 Console.WriteLine("Your score is: " + score);
-                System.Threading.Thread.Sleep(2000);
+                System.Threading.Thread.Sleep(1000);
                 Console.Clear();
             }
+
             Console.WriteLine($"Congratulations, {userName}! You have completed the Easy Level and scored {score} out of 5.\n");
 
             if (score == 5)
@@ -315,10 +348,10 @@ namespace TeReoMaoriQuiz
                 Console.WriteLine("Perfect score! Well done!");
             }
 
-            redoQuiz(userName);
-            
+            RestartMenu(userName);
+
         }// End of Hard method.
-        static void redoQuiz(string userName)
+        static void RestartMenu(string userName)
         {
             Console.WriteLine("Please choose one of the following options:");
             Console.WriteLine("Restart the quiz (type 'R')");
@@ -350,7 +383,7 @@ namespace TeReoMaoriQuiz
                     break;
                 }
                 else if (choice.Equals("h"))
-                {
+                { mvjh
                     Console.Clear();
                     Hard(userName);
                     break;
@@ -367,6 +400,6 @@ namespace TeReoMaoriQuiz
                     choice = Console.ReadLine().ToLower();
                 }
             }
-        }// End of redoQuiz method.
+        }// End of RestartMenu method.
     }// End of internal class Program.
 }// End of my code.
