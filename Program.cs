@@ -126,8 +126,8 @@ namespace TeReoMaoriQuiz
                     Console.WriteLine("\nIncorrect. The correct answer is " + answers[i][correctAnswerIndex[i]] + ".\n");
                 }
 
-                Console.WriteLine("Your score is: " + score + "\nPress any key to continue to the next question.");
-                Console.ReadKey();
+                Console.WriteLine("Your score is: " + score);
+                System.Threading.Thread.Sleep(2000);
                 Console.Clear();
             }
             Console.WriteLine($"Congratulations, {userName}! You have completed the Easy Level and scored {score} out of 5.\n");
@@ -223,8 +223,8 @@ namespace TeReoMaoriQuiz
                     Console.WriteLine("\nIncorrect. The correct answer is " + answers[i][correctAnswerIndex[i]] + ".\n");
                 }
 
-                Console.WriteLine("Your score is: " + score + "\nPress any key to continue to the next question.");
-                Console.ReadKey();
+                Console.WriteLine("Your score is: " + score);
+                System.Threading.Thread.Sleep(2000); 
                 Console.Clear();
             }
 
@@ -304,8 +304,8 @@ namespace TeReoMaoriQuiz
                     Console.WriteLine("\nIncorrect. The correct answer is " + answers[i][correctAnswerIndex[i]] + ".\n");
                 }
 
-                Console.WriteLine("Your score is: " + score + "\nPress any key to continue to the next question.");
-                Console.ReadKey();
+                Console.WriteLine("Your score is: " + score);
+                System.Threading.Thread.Sleep(2000);
                 Console.Clear();
             }
             Console.WriteLine($"Congratulations, {userName}! You have completed the Easy Level and scored {score} out of 5.\n");
