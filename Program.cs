@@ -12,9 +12,9 @@ namespace TeReoMaoriQuiz
     {
         static void Main(string[] args)
         {
-            quiz();
+            Quiz();
         }// End of Main method.
-        static void quiz()
+        static void Quiz()
         {
             // Greet the user and ask for their name
             Console.WriteLine("\t\tWelcome to my Te Reo Māori Quiz!");
@@ -140,7 +140,7 @@ namespace TeReoMaoriQuiz
                 }
 
                 Console.WriteLine("Your score is: " + score);
-                System.Threading.Thread.Sleep(1000);
+                System.Threading.Thread.Sleep(2000);
                 Console.Clear();
             }
             Console.WriteLine($"Congratulations, {userName}! You have completed the Easy Level and scored {score} out of 5.\n");
@@ -242,7 +242,7 @@ namespace TeReoMaoriQuiz
                 }
 
                 Console.WriteLine("Your score is: " + score);
-                System.Threading.Thread.Sleep(1000);
+                System.Threading.Thread.Sleep(2000);
                 Console.Clear();
             }
 
@@ -337,7 +337,7 @@ namespace TeReoMaoriQuiz
                 }
 
                 Console.WriteLine("Your score is: " + score);
-                System.Threading.Thread.Sleep(1000);
+                System.Threading.Thread.Sleep(2000);
                 Console.Clear();
             }
 
@@ -367,7 +367,7 @@ namespace TeReoMaoriQuiz
                 if (choice.Equals("r"))
                 {
                     Console.Clear();
-                    quiz();
+                    Quiz();
                     break;
                 }
                 else if (choice.Equals("e"))
@@ -383,7 +383,7 @@ namespace TeReoMaoriQuiz
                     break;
                 }
                 else if (choice.Equals("h"))
-                { mvjh
+                {
                     Console.Clear();
                     Hard(userName);
                     break;
