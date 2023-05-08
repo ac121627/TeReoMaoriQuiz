@@ -152,7 +152,9 @@ namespace TeReoMaoriQuiz
             // Asking the user if they want to play the quiz again, play any other levels or quit the program
             RestartMenu(userName);
 
-            /*In this code, we first define a question and an array of possible answers. We also specify the index of the correct answer (in this case, 1, since the correct answer is "Kia Ora").
+            /*In this code, we first define a question and an array of possible answers. We also specify the index of the correct answers (in this case, 1, since the correct answer is "Kia Ora").
+
+            The 2D array is used to allow for easy access to the answer choices for each question in the quiz. The program can loop through each row of the array to display the answer choices for the current question, and can access the correct answer for each question using the index of the correct answer stored in the "correctAnswerIndex" array.
 
             Next, we display the question and the possible answers using a for loop to iterate over the answers array. We then prompt the user to enter their answer and read their input from the console.
 
