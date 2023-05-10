@@ -10,11 +10,7 @@ namespace TeReoMaoriQuiz
 {
     internal class Program
     {
-        static void Main(string[] args)
-        {
-            Quiz();
-        }// End of Main method.
-        static void Quiz()
+        static void Main()
         {
             // Greet the user and ask for their name
             Console.WriteLine("\t\tWelcome to my Te Reo Māori Quiz!");
@@ -57,8 +53,7 @@ namespace TeReoMaoriQuiz
             {
                 Hard(userName);
             }
-
-        }// End of quiz method.
+        }// End of Main method.
         static void Easy(string userName)
         {
             // Initialize the variable "score" and set it to 0
@@ -369,7 +364,7 @@ namespace TeReoMaoriQuiz
                 if (choice.Equals("r"))
                 {
                     Console.Clear();
-                    Quiz();
+                    Main();
                     break;
                 }
                 else if (choice.Equals("e"))
