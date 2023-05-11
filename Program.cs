@@ -25,11 +25,11 @@ namespace TeReoMaoriQuiz
             }
 
             // Ask the user which level they want to play
-            Console.WriteLine($"\nHello {userName}! This quiz has 3 levels:\n");
-            Console.WriteLine("Press E for Easy level");
+            Console.Write($"\nHello {userName}! This quiz has 3 levels:\nPress E for Easy level\nPress N for Normal level\nPress H for Hard level\n\nEnter your choice here: ");
+            /*Console.WriteLine("Press E for Easy level");
             Console.WriteLine("Press N for Normal level");
             Console.WriteLine("Press H for Hard level");
-            Console.Write("\nEnter your choice here: ");
+            Console.Write("\nEnter your choice here: ");*/
             string level = Console.ReadLine().ToLower();
 
             // Validate the user's level choice
@@ -350,13 +350,7 @@ namespace TeReoMaoriQuiz
         }// End of Hard method.
         static void RestartMenu(string userName)
         {
-            Console.WriteLine("Please choose one of the following options:");
-            Console.WriteLine("Restart the quiz (type 'R')");
-            Console.WriteLine("Play the Easy level (type 'E')");
-            Console.WriteLine("Play the Normal level (type 'N')");
-            Console.WriteLine("Play the Hard level (type 'H')");
-            Console.WriteLine("Quit the program (type 'Q')");
-
+            Console.WriteLine("Please choose one of the following options:\nRestart the quiz (type 'R')\nPlay the Easy level (type 'E')\nPlay the Normal level (type 'N')\nPlay the Hard level (type 'H')\nQuit the program (type 'Q')");
             // Get user input and validate it
             string choice = Console.ReadLine().ToLower();
             while (true)
