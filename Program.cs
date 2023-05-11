@@ -20,7 +20,7 @@ namespace TeReoMaoriQuiz
             // Validate the user's name
             while (string.IsNullOrEmpty(userName))
             {
-                Console.Write("Please enter a name with at least 1 character: ");
+                Console.Write("Please enter a name with at least 1 letter: ");
                 userName = Console.ReadLine();
             }
 
@@ -338,7 +338,7 @@ namespace TeReoMaoriQuiz
                 Console.Clear();
             }
 
-            Console.WriteLine($"Congratulations, {userName}! You have completed the Easy Level and scored {score} out of 5.\n");
+            Console.WriteLine($"Congratulations, {userName}! You have completed the Hard Level and scored {score} out of 5.\n");
 
             if (score == 5)
             {
