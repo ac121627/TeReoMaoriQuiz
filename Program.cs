@@ -135,7 +135,7 @@ namespace TeReoMaoriQuiz
                 }
 
                 Console.WriteLine("Your score is: " + score);
-                System.Threading.Thread.Sleep(2000);
+                Thread.Sleep(1500);
                 Console.Clear();
             }
             Console.WriteLine($"Congratulations, {userName}! You have completed the Easy Level and scored {score} out of 5.\n");
@@ -239,7 +239,7 @@ namespace TeReoMaoriQuiz
                 }
 
                 Console.WriteLine("Your score is: " + score);
-                System.Threading.Thread.Sleep(2000);
+                Thread.Sleep(1500);
                 Console.Clear();
             }
 
@@ -334,7 +334,7 @@ namespace TeReoMaoriQuiz
                 }
 
                 Console.WriteLine("Your score is: " + score);
-                System.Threading.Thread.Sleep(2000);
+                Thread.Sleep(1500);
                 Console.Clear();
             }
 
