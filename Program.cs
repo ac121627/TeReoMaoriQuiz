@@ -26,10 +26,6 @@ namespace TeReoMaoriQuiz
 
             // Ask the user which level they want to play
             Console.Write($"\nHello {userName}! This quiz has 3 levels:\nPress E for Easy level\nPress N for Normal level\nPress H for Hard level\n\nEnter your choice here: ");
-            /*Console.WriteLine("Press E for Easy level");
-            Console.WriteLine("Press N for Normal level");
-            Console.WriteLine("Press H for Hard level");
-            Console.Write("\nEnter your choice here: ");*/
             string level = Console.ReadLine().ToLower();
 
             // Validate the user's level choice
@@ -255,8 +251,7 @@ namespace TeReoMaoriQuiz
         }// End of Normal method.
         static void Hard(string userName)
         {
-            // Initialize the variable "score" and set it to 0
-            int score = 0;
+            int score = 0; // Declare the variable "score" and set it to 0
 
             // Print a welcome message to the screen, using the "userName" parameter
             Console.WriteLine("Welcome to the Hard Level, " + userName + "!\n\nIn this quiz, you'll be asked 5 questions about Māori words and phrases. Choose the correct answer from the options provided.\n");
@@ -278,30 +273,20 @@ namespace TeReoMaoriQuiz
                 new string[] { "Whangi", "Tipu", "Tī", "Tuhi" },
                 new string[] { "Rutene", "Ringa", "Hauhautanga", "Whanui" }
             };
-
             // Declare an array called "correctAnswerIndex" that contains the index of the correct answer for each question
-            int[] correctAnswerIndex = { 1, 0, 0, 1, 0 };
+            int[] correctAnswerIndex = { 1, 0, 0, 1, 0 }; // Declare an array called "correctAnswerIndex" that contains the index of the correct answer for each question.
+            int userAnswerIndex; // Declare a variable called "userAnswerIndex" to store the user's answer.
+            bool validInput = false; // Declare a boolean variable called "validInput" and set it to false.
 
-            // Declare a variable called "userAnswerIndex" to store the user's answer
-            int userAnswerIndex;
-
-            // Declare a boolean variable called "validInput" to ensure the user enters a valid answer
-            bool validInput = false;
-
-            // Loop through each question in the quiz
-            for (int i = 0; i < questions.Length; i++)
+            for (int i = 0; i < questions.Length; i++) // Loop through each question in the quiz
             {
-                // Print the current question to the screen
-                Console.WriteLine(questions[i]);
+                Console.WriteLine(questions[i]); // Print the current question to the screen
 
-                // Loop through each answer choice for the current question and print them to the console
-                for (int j = 0; j < answers[i].Length; j++)
+                for (int j = 0; j < answers[i].Length; j++) // Loop through each answer choice for the current question.
                 {
                     Console.WriteLine($"{j + 1}. {answers[i][j]}");
                 }
-
-                // Ask the user to enter their answer and validate their input
-                do
+                do // Ask the user to enter their answer and validate their input
                 {
                     Console.Write("\nEnter your answer (1-4): ");
                     string userInput = Console.ReadLine();
@@ -337,16 +322,12 @@ namespace TeReoMaoriQuiz
                 Thread.Sleep(1500);
                 Console.Clear();
             }
-
             Console.WriteLine($"Congratulations, {userName}! You have completed the Hard Level and scored {score} out of 5.\n");
-
             if (score == 5)
             {
                 Console.WriteLine("Perfect score! Well done!");
             }
-
             RestartMenu(userName);
-
         }// End of Hard method.
         static void RestartMenu(string userName)
         {
