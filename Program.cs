@@ -61,7 +61,7 @@
             int userAnswerIndex; // Declare a variable called "userAnswerIndex" to store the user's answer
 
             bool validInput = false; // Declare a variable called "validInput" to ensure the user enters a valid answer
-            
+
             for (int i = 0; i < questions.Length; i++) // Loop through each question in the quiz
             {
                 Console.WriteLine(questions[i]); // Print the current question to the screen
