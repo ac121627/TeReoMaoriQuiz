@@ -6,6 +6,7 @@
         {
             Console.Write("\t\tWelcome to my Te Reo Māori Quiz!\nPlease enter your name to begin: "); // Greet the user and ask for their name
             string userName = Console.ReadLine();
+
             while (string.IsNullOrEmpty(userName)) // Validate the user's name
             {
                 Console.Write("Please enter a name with at least 1 letter: ");
@@ -97,8 +98,8 @@
                 {
                     Console.WriteLine("\nIncorrect. The correct answer is " + answers[i][correctAnswerIndex[i]] + ".\n");
                 }
-                Console.WriteLine("Your score is: " + score);
-                Thread.Sleep(1500);
+                Console.WriteLine("Your score is: " + score + "\nPlease wait a sec while we take you to the next question.\nPlese don't press any keys in the meantime.");
+                Thread.Sleep(2000);
                 Console.Clear();
             }
             Console.WriteLine($"Congratulations, {userName}! You have completed the Easy Level and scored {score} out of 5.\n");
@@ -108,7 +109,9 @@
             }
             RestartMenu(userName); // Asking the user if they want to play the quiz again, play any other levels or quit the program
 
-            //In this code, we first define a question and an array of possible answers. We also specify the index of the correct answers (in this case, 1, since the correct answer is "Kia Ora"). The 2D array is used to allow for easy access to the answer choices for each question in the quiz. The program can loop through each row of the array to display the answer choices for the current question, and can access the correct answer for each question using the index of the correct answer stored in the "correctAnswerIndex" array. Next, we display the question and the possible answers using a for loop to iterate over the answers array. We then prompt the user to enter their answer and read their input from the console. After that, we use the do-while loop which keeps asking the user for input until they enter a valid choice. The int.TryParse() method is used to convert the user's input to an integer, and the value is checked to ensure it is within the range of valid choices. If the user enters an invalid choice, they will be prompted to enter a valid choice. Then we display a message indicating whether the user was correct or not and then show their score. At the end of the quiz, the user's score out of 5 is displayed, and they are given the option to restart the quiz, play another level, or exit the program.
+            //In this code, we first define a question and an array of possible answers. We also specify the index of the correct answers (in this case, 1, since the correct answer is "Kia Ora"). The 2D array is used to allow for easy access to the answer choices for each question in the quiz. The program can loop through each row of the array to display the answer choices for the current question, and can access the correct answer for each question using the index of the correct answer stored in the "correctAnswerIndex" array.
+            //Next, we display the question and the possible answers using a for loop to iterate over the answers array. We then prompt the user to enter their answer and read their input from the console. After that, we use the do-while loop which keeps asking the user for input until they enter a valid choice. The int.TryParse() method is used to convert the user's input to an integer, and the value is checked to ensure it is within the range of valid choices. If the user enters an invalid choice, they will be prompted to enter a valid choice. Then we display a message indicating whether the user was correct or not and then show their score. At the end of the quiz, the user's score out of 5 is displayed, and they are given the option to restart the quiz, play another level, or exit the program.
+
         }// End of Easy method.
         static void Normal(string userName)
         {
@@ -167,8 +170,8 @@
                 {
                     Console.WriteLine("\nIncorrect. The correct answer is " + answers[i][correctAnswerIndex[i]] + ".\n");
                 }
-                Console.WriteLine("Your score is: " + score);
-                Thread.Sleep(1500);
+                Console.WriteLine("Your score is: " + score + "\nPlease wait a sec while we take you to the next question.\nPlese don't press any keys in the meantime.");
+                Thread.Sleep(2000);
                 Console.Clear();
             }
             Console.WriteLine($"Congratulations, {userName}! You have completed the Normal Level and scored {score} out of 5.\n");
@@ -238,8 +241,8 @@
                     Console.WriteLine("\nIncorrect. The correct answer is " + answers[i][correctAnswerIndex[i]] + ".\n");
                 }
 
-                Console.WriteLine("Your score is: " + score);
-                Thread.Sleep(1500);
+                Console.WriteLine("Your score is: " + score + "\nPlease wait a sec while we take you to the next question.\nPlese don't press any keys in the meantime.");
+                Thread.Sleep(2000);
                 Console.Clear();
             }
             Console.WriteLine($"Congratulations, {userName}! You have completed the Hard Level and scored {score} out of 5.\n");
