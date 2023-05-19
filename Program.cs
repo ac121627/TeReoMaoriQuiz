@@ -64,6 +64,7 @@
                 new string[] { "Rutene", "Ringa", "Hauhautanga", "Whanui" }
             };
             int[] correctAnswerIndex = { 1, 0, 0, 1, 0 }; // Declare an array called "correctAnswerIndex" that contains the index of the correct answer for each question
+
             // Launch the selected level
             Console.Clear();
             if (level == "e")
