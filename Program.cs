@@ -4,31 +4,14 @@
     {
         static void Main()
         {
-            Console.Write("\t\tWelcome to my Te Reo Māori Quiz!\nPlease enter your name to begin: "); // Greet the user and ask for their name
-            string userName = Console.ReadLine();
-
-            while (string.IsNullOrEmpty(userName)) // Validate the user's name
-            {
-                Console.Write("Please enter a name with at least 1 letter: ");
-                userName = Console.ReadLine();
-            }
-            // Ask the user which level they want to play
-            Console.Write($"\nHello {userName}! This quiz has 3 levels:\nPress E for Easy level\nPress N for Normal level\nPress H for Hard level\n\nEnter your choice here: ");
-            string level = Console.ReadLine().ToLower();
-
-            while (level != "e" && level != "n" && level != "h") // Validate the user's level choice
-            {
-                Console.Write("Please enter a valid choice (E, N, or H): ");
-                level = Console.ReadLine().ToLower();
-            }
-            string[] eQuestions = { // Declare an array called "eQuestions" that contains the quiz questions
+            string[] eQuestions = { // Declare an array called "eQuestions" that contains the quiz questions for the Easy level
                   "Q1) What is the Māori word for Hello?" ,
                   "Q2) What is the Māori word for Family?" ,
                   "Q3) What is the Māori word for Love?" ,
                   "Q4) What is the Māori word for Food?" ,
                   "Q5) What is the Māori word for Mountain?"
             };
-            string[][] eAnswers = { // Declare a 2-dimensional array called "eAnswers" that contains the answer choices for each question
+            string[][] eAnswers = { // Declare a 2-dimensional array called "eAnswers" that contains the answer choices for each question in Easy level
                 new string[] { "Papa", "Kia Ora", "Manaakitanga", "Haere rā" },
                 new string[] { "Whanau", "Waka", "Kikorangi", "Pango" },
                 new string[] { "Aroha", "Ahiahi Pai", "Papura", "Parauri" },
@@ -64,34 +47,47 @@
                 new string[] { "Rutene", "Ringa", "Hauhautanga", "Whanui" }
             };
             int[] correctAnswerIndex = { 1, 0, 0, 1, 0 }; // Declare an array called "correctAnswerIndex" that contains the index of the correct answer for each question
+            Console.Write("\t\tWelcome to my Te Reo Māori Quiz!\nPlease enter your name to begin: "); // Greet the user and ask for their name
+            string userName = Console.ReadLine();
 
-            // Launch the selected level
-            Console.Clear();
-            if (level == "e")
+            while (string.IsNullOrEmpty(userName)) // Validate the user's name
             {
-                Quiz(userName, eQuestions, eAnswers, correctAnswerIndex);
-                RestartQuiz(userName, eQuestions, eAnswers, correctAnswerIndex, nQuestions, nAnswers, hQuestions, hAnswers);
+                Console.Write("Please enter a name with at least 1 letter: ");
+                userName = Console.ReadLine();
             }
-            else if (level == "n")
-            {
-                Quiz(userName, nQuestions, nAnswers, correctAnswerIndex);
-                RestartQuiz(userName, eQuestions, eAnswers, correctAnswerIndex, nQuestions, nAnswers, hQuestions, hAnswers);
-            }
-            else if (level == "h")
-            {
-                Quiz(userName, hQuestions, hAnswers, correctAnswerIndex);
-                RestartQuiz(userName, eQuestions, eAnswers, correctAnswerIndex, nQuestions, nAnswers, hQuestions, hAnswers);
-            }
+            do
+            {   // Ask the user which level they want to play
+                Console.Write($"\nHello {userName}! This quiz has 3 levels:\nPress E for Easy level\nPress N for Normal level\nPress H for Hard level\n\nEnter your choice here: ");
+                string level = Console.ReadLine().ToLower();
+                while (level != "e" && level != "n" && level != "h") // Validate the user's level choice
+                {
+                    Console.Write("Please enter a valid choice (E, N, or H): ");
+                    level = Console.ReadLine().ToLower();
+                }
+                // Launch the selected level
+                Console.Clear();
+                if (level == "e")
+                {
+                    Quiz(userName, eQuestions, eAnswers, correctAnswerIndex);
+                    RestartQuiz(userName, eQuestions, eAnswers, correctAnswerIndex, nQuestions, nAnswers, hQuestions, hAnswers);
+                }
+                else if (level == "n")
+                {
+                    Quiz(userName, nQuestions, nAnswers, correctAnswerIndex);
+                    RestartQuiz(userName, eQuestions, eAnswers, correctAnswerIndex, nQuestions, nAnswers, hQuestions, hAnswers);
+                }
+                else if (level == "h")
+                {
+                    Quiz(userName, hQuestions, hAnswers, correctAnswerIndex);
+                    RestartQuiz(userName, eQuestions, eAnswers, correctAnswerIndex, nQuestions, nAnswers, hQuestions, hAnswers);
+                }
+            } while (true);
         }// End of Main method.
         static void Quiz(string userName, string[] questions, string[][] answers, int[] correctAnswerIndex)
         {
             // Print a welcome message to the screen, using the "userName" parameter
             Console.WriteLine("Welcome to the Easy Level, " + userName + "!\n\nIn this quiz, you'll be asked 5 questions about Māori words and phrases. Choose the correct answer from the options provided.\n");
-
             int userAnswerIndex, score = 0; // Declare a variable called "userAnswerIndex" to store the user's answer and declare the variable "score" and set it to 0.
-
-            bool validInput = false; // Declare a variable called "validInput" to ensure the user enters a valid answer
-
             for (int i = 0; i < questions.Length; i++) // Loop through each question in the quiz
             {
                 Console.WriteLine(questions[i]); // Print the current question to the screen
@@ -100,6 +96,7 @@
                 {
                     Console.WriteLine($"{j + 1}. {answers[i][j]}");
                 }
+                bool validInput = false; // Declare a variable called "validInput" to ensure the user enters a valid answer
                 do // Ask the user to enter their answer and validate their input
                 {
                     Console.Write("\nEnter your answer (1-4): ");
@@ -118,6 +115,7 @@
                     }
 
                 } while (!validInput);
+
                 if (userAnswerIndex == correctAnswerIndex[i]) // Check if the user's answer is correct and update the score accordingly
                 {
                     Console.WriteLine("\nCorrect!\n");
@@ -127,7 +125,7 @@
                 {
                     Console.WriteLine("\nIncorrect. The correct answer is " + answers[i][correctAnswerIndex[i]] + ".\n");
                 }
-                Console.WriteLine("Your score is: " + score);
+                Console.WriteLine("Your score is: " + score + "\nPlease press any key to continue.");
                 Console.ReadKey();
                 Console.Clear();
             }
@@ -136,7 +134,7 @@
             {
                 Console.WriteLine("Perfect score! Well done!");
             }
-            //In this code, we first define a question and an array of possible answers. We also specify the index of the correct answers (in this case, 1, since the correct answer is "Kia Ora"). The 2D array is used to allow for easy access to the answer choices for each question in the quiz. The program can loop through each row of the array to display the answer choices for the current question, and can access the correct answer for each question using the index of the correct answer stored in the "correctAnswerIndex" array.Next, we display the question and the possible answers using a for loop to iterate over the answers array. We then prompt the user to enter their answer and read their input from the console. After that, we use the do-while loop which keeps asking the user for input until they enter a valid choice. The int.TryParse() method is used to convert the user's input to an integer, and the value is checked to ensure it is within the range of valid choices. If the user enters an invalid choice, they will be prompted to enter a valid choice. Then we display a message indicating whether the user was correct or not and then show their score. At the end of the quiz, the user's score out of 5 is displayed, and they are given the option to restart the quiz, play another level, or exit the program.
+            //In this code, we first define a question and an array of possible answers. We also specify the index of the correct answers (in this case, 1, since the correct answer is "Kia Ora"). The 2D array is used to allow for easy access to the answer choices for each question in the quiz. The program can loop through each row of the array to display the answer choices for the current question, and can access the correct answer for each question using the index of the correct answer stored in the "correctAnswerIndex" array. Next, we display the question and the possible answers using a for loop to iterate over the answers array. We then prompt the user to enter their answer and read their input from the console. After that, we use the do-while loop which keeps asking the user for input until they enter a valid choice. The int.TryParse() method is used to convert the user's input to an integer, and the value is checked to ensure it is within the range of valid choices. If the user enters an invalid choice, they will be prompted to enter a valid choice. Then we display a message indicating whether the user was correct or not and then show their score. At the end of the quiz, the user's score out of 5 is displayed, and they are given the option to restart the quiz, play another level, or exit the program.
         }// End of Quiz method.
         static void RestartQuiz(string userName, string[] eQuestions, string[][] eAnswers, int[] correctAnswerIndex, string[] nQuestions, string[][] nAnswers, string[] hQuestions, string[][] hAnswers)
         {
