@@ -18,28 +18,28 @@
                 new string[] { "Ngako", "Kai", "Mea Atu", "Roopu" },
                 new string[] { "Maunga", "Ua", "Aotearoa", "Koropiko" }
             };
-            string[] nQuestions = {
+            string[] nQuestions = { // Questions for Normal level
                "Q1) What is the Māori word for Land?",
                "Q2) What is the Māori word for River?",
                "Q3) What is the Māori word for Hear?",
                "Q4) What is the Māori word for You?",
                "Q5) What is the Māori word for Earth?"
             };
-            string[][] nAnswers = {
+            string[][] nAnswers = { // Answers for Normal level
                  new string[] { "Rangatira", "Whenua", "Whare", "Tangata" },
                  new string[] { "Awa", "Moana", "Wai", "Rangi" },
                  new string[] { "Rongo", "Whakarongo Mai", "Hapa", "Parauri" },
                  new string[] { "Ahau", "Koe", "Matou", "Ratou" },
                  new string[] { "Papatūānuku", "Tangaroa", "Tāne", "Rangi" }
             };
-            string[] hQuestions = {
+            string[] hQuestions = { // Questions for Hard level
                 "Q1) What is the Māori word for Carving?",
                 "Q2) What is the Māori word for Weaving?",
                 "Q3) What is the Māori word for Clothing?",
                 "Q4) What is the Māori word for Plant?",
                 "Q5) What is the Māori word for Lieutenant?"
             };
-            string[][] hAnswers = {
+            string[][] hAnswers = { // Answers for Hard level
                 new string[] { "Tekau", "Whakairo", "Tāniko", "Pango" },
                 new string[] { "Raranga", "Poti", "Moana", "Ngā mihi" },
                 new string[] { "Kakahu", "Māra", "Rākau", "Matimati" },
@@ -56,6 +56,77 @@
                 userName = Console.ReadLine();
             }
             do
+            {
+                do
+                {   // Ask the user which level they want to play
+                    Console.Write($"\nHello {userName}! This quiz has 3 levels:\nPress E for Easy level\nPress N for Normal level\nPress H for Hard level\n\nEnter your choice here: ");
+                    string level = Console.ReadLine().ToLower();
+                    while (level != "e" && level != "n" && level != "h") // Validate the user's level choice
+                    {
+                        Console.Write("Please enter a valid choice (E, N, or H): ");
+                        level = Console.ReadLine().ToLower();
+                    }
+                    // Launch the selected level
+                    Console.Clear();
+                    if (level == "e")
+                    {
+                        Quiz(userName, eQuestions, eAnswers, correctAnswerIndex);
+                        //RestartQuiz(userName, eQuestions, eAnswers, correctAnswerIndex, nQuestions, nAnswers, hQuestions, hAnswers);
+                    }
+                    else if (level == "n")
+                    {
+                        Quiz(userName, nQuestions, nAnswers, correctAnswerIndex);
+                        //RestartQuiz(userName, eQuestions, eAnswers, correctAnswerIndex, nQuestions, nAnswers, hQuestions, hAnswers);
+                    }
+                    else if (level == "h")
+                    {
+                        Quiz(userName, hQuestions, hAnswers, correctAnswerIndex);
+                        //RestartQuiz(userName, eQuestions, eAnswers, correctAnswerIndex, nQuestions, nAnswers, hQuestions, hAnswers);
+                    }
+                } while (true);
+                Console.WriteLine("Please choose one of the following options:\nRestart the quiz (type 'R')\nPlay the Easy level (type 'E')\nPlay the Normal level (type 'N')\nPlay the Hard level (type 'H')\nQuit the program (type 'Q')");
+                // Get user input and validate it
+                string choice = Console.ReadLine().ToLower();
+                while (true)
+                {
+                    if (choice.Equals("r"))
+                    {
+                        Console.Clear();
+                        Main();
+                        break;
+                    }
+                    else if (choice.Equals("e"))
+                    {
+                        Console.Clear();
+                        Quiz(userName, eQuestions, eAnswers, correctAnswerIndex);
+                        break;
+                    }
+                    else if (choice.Equals("n"))
+                    {
+                        Console.Clear();
+                        Quiz(userName, nQuestions, nAnswers, correctAnswerIndex);
+                        break;
+                    }
+                    else if (choice.Equals("h"))
+                    {
+                        Console.Clear();
+                        Quiz(userName, hQuestions, hAnswers, correctAnswerIndex);
+                        break;
+                    }
+                    else if (choice.Equals("q"))
+                    {
+                        Console.Clear();
+                        Console.WriteLine(userName + ", thank you for playing the quiz. Goodbye!");
+                        Environment.Exit(0);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid choice. Please enter a valid option (1-5):");
+                        choice = Console.ReadLine().ToLower();
+                    }
+                }
+            } while (true);
+            /*do
             {   // Ask the user which level they want to play
                 Console.Write($"\nHello {userName}! This quiz has 3 levels:\nPress E for Easy level\nPress N for Normal level\nPress H for Hard level\n\nEnter your choice here: ");
                 string level = Console.ReadLine().ToLower();
@@ -69,24 +140,65 @@
                 if (level == "e")
                 {
                     Quiz(userName, eQuestions, eAnswers, correctAnswerIndex);
-                    RestartQuiz(userName, eQuestions, eAnswers, correctAnswerIndex, nQuestions, nAnswers, hQuestions, hAnswers);
+                    //RestartQuiz(userName, eQuestions, eAnswers, correctAnswerIndex, nQuestions, nAnswers, hQuestions, hAnswers);
                 }
                 else if (level == "n")
                 {
                     Quiz(userName, nQuestions, nAnswers, correctAnswerIndex);
-                    RestartQuiz(userName, eQuestions, eAnswers, correctAnswerIndex, nQuestions, nAnswers, hQuestions, hAnswers);
+                    //RestartQuiz(userName, eQuestions, eAnswers, correctAnswerIndex, nQuestions, nAnswers, hQuestions, hAnswers);
                 }
                 else if (level == "h")
                 {
                     Quiz(userName, hQuestions, hAnswers, correctAnswerIndex);
-                    RestartQuiz(userName, eQuestions, eAnswers, correctAnswerIndex, nQuestions, nAnswers, hQuestions, hAnswers);
+                    //RestartQuiz(userName, eQuestions, eAnswers, correctAnswerIndex, nQuestions, nAnswers, hQuestions, hAnswers);
                 }
             } while (true);
+            Console.WriteLine("Please choose one of the following options:\nRestart the quiz (type 'R')\nPlay the Easy level (type 'E')\nPlay the Normal level (type 'N')\nPlay the Hard level (type 'H')\nQuit the program (type 'Q')");
+            // Get user input and validate it
+            string choice = Console.ReadLine().ToLower();
+            while (true)
+            {
+                if (choice.Equals("r"))
+                {
+                    Console.Clear();
+                    Main();
+                    break;
+                }
+                else if (choice.Equals("e"))
+                {
+                    Console.Clear();
+                    Quiz(userName, eQuestions, eAnswers, correctAnswerIndex);
+                    break;
+                }
+                else if (choice.Equals("n"))
+                {
+                    Console.Clear();
+                    Quiz(userName, nQuestions, nAnswers, correctAnswerIndex);
+                    break;
+                }
+                else if (choice.Equals("h"))
+                {
+                    Console.Clear();
+                    Quiz(userName, hQuestions, hAnswers, correctAnswerIndex);
+                    break;
+                }
+                else if (choice.Equals("q"))
+                {
+                    Console.Clear();
+                    Console.WriteLine(userName + ", thank you for playing the quiz. Goodbye!");
+                    Environment.Exit(0);
+                }
+                else
+                {
+                    Console.WriteLine("Invalid choice. Please enter a valid option (1-5):");
+                    choice = Console.ReadLine().ToLower();
+                }
+            }*/
         }// End of Main method.
         static void Quiz(string userName, string[] questions, string[][] answers, int[] correctAnswerIndex)
         {
             // Print a welcome message to the screen, using the "userName" parameter
-            Console.WriteLine("Welcome to the Easy Level, " + userName + "!\n\nIn this quiz, you'll be asked 5 questions about Māori words and phrases. Choose the correct answer from the options provided.\n");
+            Console.WriteLine("Welcome, " + userName + "!\n\nIn this quiz, you'll be asked 5 questions about Māori words and phrases. Choose the correct answer from the options provided.\n");
             int userAnswerIndex, score = 0; // Declare a variable called "userAnswerIndex" to store the user's answer and declare the variable "score" and set it to 0.
             for (int i = 0; i < questions.Length; i++) // Loop through each question in the quiz
             {
