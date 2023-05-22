@@ -41,7 +41,6 @@
                 "Q4) What is the Māori word for Plant?",
                 "Q5) What is the Māori word for Lieutenant?"
             };
-
             string[][] hAnswers = { // Answers for Hard level
                 new string[] { "Tekau", "Whakairo", "Tāniko", "Pango" },
                 new string[] { "Raranga", "Poti", "Moana", "Ngā mihi" },    
@@ -98,9 +97,9 @@
         static void Quiz(string userName, string[] questions, string[][] answers, int[] correctAnswerIndex)
         {
             // Print a welcome message to the screen, using the "userName" parameter
-            Console.WriteLine("Welcome " + userName + "!\n\nIn this quiz, you'll be asked 5 questions about Māori words and phrases. Choose the correct answer from the options provided.\n");
+            Console.WriteLine("Welcome " + userName + "!\n\nIn this quiz, you'll be asked 5 questions about Māori words. Choose the correct answer from the options provided.\n");
 
-            int userAnswerIndex, score = 0; // Declare a variable called "userAnswerIndex" to store the user's answer we also declare the variable "score" and set it to 0.
+            int userAnswerIndex, score = 0; // Declare a variable called "userAnswerIndex" to store the user's answer and declare the variable "score" setting it to 0.
 
             for (int i = 0; i < questions.Length; i++) // Loop through each question in the quiz
             {
@@ -111,7 +110,7 @@
                     Console.WriteLine($"{j + 1}. {answers[i][j]}");
                 }
 
-                bool validInput = false; // Declare a variable called "validInput" to ensure the user enters a valid 
+                bool validInput = false; // Declare a variable called "validInput" to ensure the user enters a valid answer
 
                 do // Ask the user to enter their answer and validate their input
                 {
@@ -121,6 +120,7 @@
                     if (int.TryParse(userInput, out userAnswerIndex))
                     {
                         userAnswerIndex--;
+
                         if (userAnswerIndex >= 0 && userAnswerIndex < 4)
                         {
                             validInput = true;
@@ -147,27 +147,20 @@
                 Console.WriteLine("Your score is: " + score + "\nPlease press any key to continue.");
                 Console.ReadKey();
                 Console.Clear();
-            }
 
-            Console.WriteLine($"Congratulations, {userName}! You have completed the this Level and scored {score} out of 5.\n");
+            } // End of for loop
+
+            Console.WriteLine($"Congratulations, {userName}! You have completed this Level and scored {score} out of 5.");
 
             if (score == 5)
             {
                 Console.WriteLine("Perfect score! Well done!");
             }
 
-            //In this code, we first define a question and an array of possible answers. We also specify the index of the correct answers (in this case, 1, since the correct answer is "Kia Ora").
-
-            //The 2D array is used to allow for easy access to the answer choices for each question in the quiz. The program can loop through each row of the array to display the answer choices for the current question, and can access the correct answer for each question using the index of the correct answer stored in the "correctAnswerIndex" array.
-
-            //Next, we display the question and the possible answers using a for loop to iterate over the answers array. We then prompt the user to enter their answer and read their input from the console. After that, we use the do-while loop which keeps asking the user for input until they enter a valid choice. The int.TryParse() method is used to convert the user's input to an integer, and the value is checked to ensure it is within the range of valid choices. If the user enters an invalid choice, they will be prompted to enter a valid choice.
-
-            //Fianlly, we display a message indicating whether the user was correct or not and then show their score. At the end of the quiz, the user's score out of 5 is displayed, and they are given the option to restart the quiz, play another level, or exit the program.
-
         }// End of Quiz method.
         static void RestartMenu(string userName, string[] eQuestions, string[][] eAnswers, int[] correctAnswerIndex, string[] nQuestions, string[][] nAnswers, string[] hQuestions, string[][] hAnswers)
         {
-            Console.WriteLine("Please choose one of the following options:\nRestart the quiz (type 'R')\nPlay the Easy level (type 'E')\nPlay the Normal level (type 'N')\nPlay the Hard level (type 'H')\nQuit the program (type 'Q')");
+            Console.Write("\nPlease choose one of the following options:\nRestart the quiz (type 'R')\nPlay the Easy level (type 'E')\nPlay the Normal level (type 'N')\nPlay the Hard level (type 'H')\nQuit the program (type 'Q')\n\nEnter your choice here:");
 
             // Get user input and validate it
             string choice = Console.ReadLine().ToLower();
@@ -206,10 +199,16 @@
                 }
                 else
                 {
-                    Console.WriteLine("Invalid choice. Please enter a valid option (1-5):");
+                    Console.Write("Invalid choice. Please enter a valid option:");
                     choice = Console.ReadLine().ToLower();
                 }
             }
-        }// End of RestartQuiz method.
+            //In this code, we first define an array of questions and an array of answers. We also have an array for the correct answers. The 2D array is used to allow for easy access to the answer choices for each question in the quiz. The program can loop through each row of the array to display the answer choices for the current question, and can access the correct answer for each question using the index of the correct answer stored in the "correctAnswerIndex" array.
+
+            //Next, we display the question and the possible answers using a for loop to iterate over the answers array. We then prompt the user to enter their answer and read their input from the console. After that, we use the do-while loop which keeps asking the user for input until they enter a valid choice. The int.TryParse() method is used to convert the user's input to an integer, and the value is checked to ensure it is within the range of valid choices. If the user enters an invalid choice, they will be prompted to enter a valid choice.
+
+            //Fianlly, we display a message indicating whether the user was correct or not and then show their score. At the end of the quiz, the user's score out of 5 is displayed, and they are given the option to restart the quiz, play another level, or exit the program.
+
+        }// End of RestartMenu method.
     }// End of internal class Program.
 }// End of my code.
