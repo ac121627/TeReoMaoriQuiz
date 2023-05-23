@@ -98,6 +98,7 @@
                     Console.Write("Please enter a valid choice (Y or N): ");
                     restart = Console.ReadLine().ToLower();
                 }
+
                 Console.Clear();
                 if (restart.Equals("y"))
                 {
