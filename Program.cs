@@ -18,7 +18,6 @@
                 new string[] { "Ngako", "Kai", "Mea Atu", "Roopu" },
                 new string[] { "Maunga", "Ua", "Aotearoa", "Koropiko" }
             };
-
             string[] nQuestions = { // Questions for Normal level
                "Q1) What is the Māori word for Land?",
                "Q2) What is the Māori word for River?",
@@ -33,7 +32,6 @@
                  new string[] { "Ahau", "Koe", "Matou", "Ratou" },
                  new string[] { "Papatūānuku", "Tangaroa", "Tāne", "Rangi" }
             };
-
             string[] hQuestions = { // Questions for Hard level
                 "Q1) What is the Māori word for Carving?",
                 "Q2) What is the Māori word for Weaving?",
@@ -51,10 +49,11 @@
 
             int[] correctAnswerIndex = { 1, 0, 0, 1, 0 }; // Declare an array called "correctAnswerIndex" that contains the index of the correct answer for each question
 
-            Console.Write("\t\tWelcome to my Te Reo Māori Quiz!\nPlease enter your name to begin: "); // Greet the user and ask for their name
-
-            string userName = Console.ReadLine();
             bool choice;
+
+            // Greet the user and ask for their name
+            Console.Write("\t\tWelcome to my Te Reo Māori Quiz!\nPlease enter your name to begin: ");
+            string userName = Console.ReadLine();
 
             while (string.IsNullOrEmpty(userName)) // Validate the user's name
             {
@@ -89,8 +88,8 @@
                     Quiz(userName, hQuestions, hAnswers, correctAnswerIndex);
                 }
 
+                // Ask the user if they want to restart the quiz
                 Console.Write("\nDo you want to restart the quiz? (Y/N)\n\nEnter your choice here:");
-
                 string restart = Console.ReadLine().ToLower();
 
                 while (!restart.Equals("y") && !restart.Equals("n")) // Validate the user's restart the quiz choice
@@ -102,14 +101,14 @@
                 Console.Clear();
                 if (restart.Equals("y"))
                 {
-                    choice = true;
+                    choice = true; // Set choice to true if the user wants to restart
                 }
                 else
                 {
-                    choice = false;
+                    choice = false; // Set choice to false if the user wants to exit the program
                 }
 
-            } while (choice!=false);
+            } while (choice != false);
 
             Console.WriteLine(userName + ", thank you for playing my quiz. Goodbye!");
 
@@ -121,11 +120,11 @@
 
             int userAnswerIndex, score = 0; // Declare a variable called "userAnswerIndex" to store the user's answer and declare the variable "score" setting it to 0.
 
-            for (int i = 0; i < questions.Length; i++) // Loop through each question in the quiz i represents the question index
+            for (int i = 0; i < questions.Length; i++) // Loop through each question in the quiz, "i" represents the question index
             {
                 Console.WriteLine(questions[i]); // Print the current question to the screen
 
-                for (int j = 0; j < answers[i].Length; j++) // j Loop through each answer choice for the current question index i
+                for (int j = 0; j < answers[i].Length; j++) // "j" Loops through each answer choice for the current question index "i"
                 {
                     Console.WriteLine($"{j + 1}. {answers[i][j]}");
                 }
@@ -139,7 +138,7 @@
 
                     if (int.TryParse(userInput, out userAnswerIndex))
                     {
-                        userAnswerIndex--; // write what does the minus, minus, does.
+                        userAnswerIndex--; // Subtract 1 from the user's input to match the answer index
 
                         if (userAnswerIndex >= 0 && userAnswerIndex < 4)
                         {
@@ -170,6 +169,7 @@
 
             } // End of for loop
 
+            // Display the final score and completion message
             Console.WriteLine($"Congratulations, {userName}! You have completed this Level and scored {score} out of 5.");
 
             if (score == 5)
@@ -181,8 +181,8 @@
 
             //Next, we display the question and the possible answers using a for loop to iterate over the answers array. We then prompt the user to enter their answer and read their input from the console. After that, we use the do-while loop which keeps asking the user for input until they enter a valid choice. The int.TryParse() method is used to convert the user's input to an integer, and the value is checked to ensure it is within the range of valid choices. If the user enters an invalid choice, they will be prompted to enter a valid choice.
 
-            //Fianlly, we display a message indicating whether the user was correct or not and then show their score. At the end of the quiz, the user's score out of 5 is displayed and we ask them if they want to play the quiz again (yes or no).
+            //Fianlly, we display a message indicating whether the user was correct or not and then show their score. At the end of the quiz, the user's score out of 5 is displayed and we ask them if they want to play the quiz again (yes or no). If their choice is yes (y) then we restart the quiz from the level selection part and if their choice is no (n) then we print a goodbye message on the screen and exit the program.
 
         }// End of Quiz method.
     }
-}                                                 /*End Of My Code*/
+}                                                       /*End Of My Code*/
