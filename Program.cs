@@ -26,7 +26,7 @@
                   "Q5) What is the Māori word for Lieutenant?\n1. Rutene\n2. Ringa\n3. Hauhautanga\n4. Whanui"
             };
 
-            bool choice = false;
+            bool choice = false; // Declare a boolean called choice and set it to false
 
             // Greet the user and ask for their name
             Console.Write("\t\tWelcome to my Te Reo Māori Quiz!\nPlease enter your name to begin: ");
