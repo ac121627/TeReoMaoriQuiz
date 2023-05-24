@@ -4,52 +4,29 @@
     {
         static void Main()
         {
-            string[] eQuestions = { // Declare an array called "eQuestions" that contains the quiz questions for the Easy level
-                  "Q1) What is the Māori word for Hello?" ,
-                  "Q2) What is the Māori word for Family?" ,
-                  "Q3) What is the Māori word for Love?" ,
-                  "Q4) What is the Māori word for Food?" ,
-                  "Q5) What is the Māori word for Mountain?"
+            string[] eQuestionsAndAnswers = { // Declare an array called "eQuestionAndAnswers" that contains the quiz questions and answers for the Easy level
+                  "Q1) What is the Māori word for Hello?\n1. Papa\n2. Kia Ora\n3. Manaakitanga\n4. Haere ra",
+                  "Q2) What is the Māori word for Family?\n1. Whanau\n2. Waka\n3. Kikorangi\n4. Pango" ,
+                  "Q3) What is the Māori word for Love?\n1. Aroha\n2. Ahiahi Pai\n3. Papura\n4. Parauri" ,
+                  "Q4) What is the Māori word for Food?\n1. Ngako\n2. Kai\n3. Mea Atu\n4. Roopu" ,
+                  "Q5) What is the Māori word for Mountain?\n1. Maunga\n2. Ua\n3. Aotearoa\n4. Koropiko"
             };
-            string[][] eAnswers = { // Declare a 2D array called "eAnswers" that contains the answer choices for each question in Easy level
-                new string[] { "Papa", "Kia Ora", "Manaakitanga", "Haere rā" },
-                new string[] { "Whanau", "Waka", "Kikorangi", "Pango" },
-                new string[] { "Aroha", "Ahiahi Pai", "Papura", "Parauri" },
-                new string[] { "Ngako", "Kai", "Mea Atu", "Roopu" },
-                new string[] { "Maunga", "Ua", "Aotearoa", "Koropiko" }
+            string[] nQuestionsAndAnswers = { // Questions and answers for Normal level
+                  "Q1) What is the Māori word for Land?\n1. Rangatira\n2. Whenua\n3. Whare\n4. Tangata",
+                  "Q2) What is the Māori word for River?\n1. Awa\n2. Moana\n3. Wai\n4. Rangi",
+                  "Q3) What is the Māori word for Hear?\n1. Rongo\n2. Whakarongo Mai\n3. Hapa\n4. Parauri",
+                  "Q4) What is the Māori word for You?\n1. Ahau\n2. Koe\n3. Matou\n4. Ratou",
+                  "Q5) What is the Māori word for Earth?\n1. Papatūānuku\n2. Tangaroa\n3. Tāne\n4. Rangi"
             };
-            string[] nQuestions = { // Questions for Normal level
-               "Q1) What is the Māori word for Land?",
-               "Q2) What is the Māori word for River?",
-               "Q3) What is the Māori word for Hear?",
-               "Q4) What is the Māori word for You?",
-               "Q5) What is the Māori word for Earth?"
-            };
-            string[][] nAnswers = { // Answers for Normal level
-                 new string[] { "Rangatira", "Whenua", "Whare", "Tangata" },
-                 new string[] { "Awa", "Moana", "Wai", "Rangi" },
-                 new string[] { "Rongo", "Whakarongo Mai", "Hapa", "Parauri" },
-                 new string[] { "Ahau", "Koe", "Matou", "Ratou" },
-                 new string[] { "Papatūānuku", "Tangaroa", "Tāne", "Rangi" }
-            };
-            string[] hQuestions = { // Questions for Hard level
-                "Q1) What is the Māori word for Carving?",
-                "Q2) What is the Māori word for Weaving?",
-                "Q3) What is the Māori word for Clothing?",
-                "Q4) What is the Māori word for Plant?",
-                "Q5) What is the Māori word for Lieutenant?"
-            };
-            string[][] hAnswers = { // Answers for Hard level
-                new string[] { "Tekau", "Whakairo", "Tāniko", "Pango" },
-                new string[] { "Raranga", "Poti", "Moana", "Ngā mihi" },    
-                new string[] { "Kakahu", "Māra", "Rākau", "Matimati" },
-                new string[] { "Whangi", "Tipu", "Tī", "Tuhi" },
-                new string[] { "Rutene", "Ringa", "Hauhautanga", "Whanui" }
+            string[] hQuestionsAndAnswers = { // Questions and answers for Hard level
+                  "Q1) What is the Māori word for Carving?\n1. Tekau\n2. Whakairo\n3. Tāniko\n4. Pango",
+                  "Q2) What is the Māori word for Weaving?\n1. Raranga\n2. Poti\n3. Moana\n4. Ngā mihi",
+                  "Q3) What is the Māori word for Clothing?\n1. Kakahu\n2. Māra\n3. Rākau\n4. Matimati",
+                  "Q4) What is the Māori word for Plant?\n1. Whangi\n2. Tipu\n3. Tī\n4. Tuhi",
+                  "Q5) What is the Māori word for Lieutenant?\n1. Rutene\n2. Ringa\n3. Hauhautanga\n4. Whanui"
             };
 
-            int[] correctAnswerIndex = { 1, 0, 0, 1, 0 }; // Declare an array called "correctAnswerIndex" that contains the index of the correct answer for each question
-
-            bool choice = false; 
+            bool choice = false;
 
             // Greet the user and ask for their name
             Console.Write("\t\tWelcome to my Te Reo Māori Quiz!\nPlease enter your name to begin: ");
@@ -77,39 +54,42 @@
                 Console.Clear();
                 if (level.Equals("e"))
                 {
-                    Quiz(userName, eQuestions, eAnswers, correctAnswerIndex);
+                    Quiz(userName, eQuestionsAndAnswers);
                 }
                 else if (level.Equals("n"))
                 {
-                    Quiz(userName, nQuestions, nAnswers, correctAnswerIndex);
+                    Quiz(userName, nQuestionsAndAnswers);
                 }
                 else if (level.Equals("h"))
                 {
-                    Quiz(userName, hQuestions, hAnswers, correctAnswerIndex);
+                    Quiz(userName, hQuestionsAndAnswers);
                 }
 
                 // Ask the user if they want to restart the quiz
                 Console.Write("\nDo you want to restart the quiz? (Y/N)\n\nEnter your choice here:");
                 string restart = Console.ReadLine().ToLower();
 
-                while (!restart.Equals("y") && !restart.Equals("n")) // Validate the user's choice if he wants to restart the quiz
+                while (!restart.Equals("y") && !restart.Equals("n")) // Validate the user's choice
                 {
                     Console.Write("Please enter a valid choice (Y or N): ");
                     restart = Console.ReadLine().ToLower();
                 }
 
                 Console.Clear();
-                if (restart.Equals("y"))
+                if (restart.Equals("n"))
                 {
-                    choice = true; // Set choice to true if the user wants to restart
+                    choice = true; // Set choice to true if the user doesn't want to restart the quiz
                 }
-            } while (choice == true);
+
+            } while (!choice);
 
             Console.WriteLine(userName + ", thank you for playing my quiz. Goodbye!");
 
         }// End of Main method.
-        static void Quiz(string userName, string[] questions, string[][] answers, int[] correctAnswerIndex)
+        static void Quiz(string userName, string[] questions)
         {
+            int[] correctAnswerIndex = { 1, 0, 0, 1, 0 }; // Declare an array called "correctAnswerIndex" that contains the index of the correct answer for each question
+
             int userAnswerIndex, score = 0; // Declare a variable called "userAnswerIndex" to store the user's answer and declare the variable "score" setting it to 0.
 
             // Print a welcome message to the screen, using the "userName" parameter
@@ -119,12 +99,7 @@
             {
                 Console.WriteLine(questions[i]); // Print the current question to the screen
 
-                for (int j = 0; j < answers[i].Length; j++) // "j" Loops through each answer choice for the current question index "i"
-                {
-                    Console.WriteLine($"{j + 1}. {answers[i][j]}");
-                }
-
-                bool validInput = false; // Declare a variable called "validInput" and set it to false, to ensure the user enters a valid answer
+                bool validInput = false; // Declare a variable called "validInput" and set it to false
 
                 do // Ask the user to enter their answer and validate their input
                 {
@@ -155,23 +130,20 @@
                 }
                 else
                 {
-                    Console.WriteLine("\nIncorrect. The correct answer is " + answers[i][correctAnswerIndex[i]] + ".\n");
+                    Console.WriteLine($"\nIncorrect. The correct answer is {correctAnswerIndex[i] + 1}\n");
                 }
 
-                Console.WriteLine("Your score is: " + score + "\nPlease press any key to continue.");
-                Console.ReadKey();
-                Console.Clear();
+                Console.WriteLine("Your score is: " + score + "\nPlease press any key to continue."); 
+                Console.ReadKey(); Console.Clear();
 
             } // End of for loop
 
-            // Display the final score and completion message
+            // Display the final score and level completion message
             Console.WriteLine($"Congratulations, {userName}! You have completed this Level and scored {score} out of 5.");
 
-            //In this code, we first define an array of questions and an array of answers. We also have an array for the correct answers. The 2D array is used to allow for easy access to the answer choices for each question in the quiz. The program can loop through each row of the array to display the answer choices for the current question, and can access the correct answer for each question using the index of the correct answer stored in the "correctAnswerIndex" array.
-
-            //Next, we display the question and the possible answers using a for loop to iterate over the answers array. We then prompt the user to enter their answer and read their input from the console. After that, we use the do-while loop which keeps asking the user for input until they enter a valid choice. The int.TryParse() method is used to convert the user's input to an integer, and the value is checked to ensure it is within the range of valid choices. If the user enters an invalid choice, they will be prompted to enter a valid choice.
-
-            //Fianlly, we display a message indicating whether the user was correct or not and then show their score. At the end of the quiz, the user's score out of 5 is displayed and we ask them if they want to play the quiz again (yes or no). If their choice is yes (y) then we restart the quiz from the level selection part and if their choice is no (n) then we print a goodbye message on the screen and exit the program.
+            //In this code, we first define an array of questions and answers. Next, we display the question and the answer choices using a for loop. We then prompt the user to enter their answer and read their input from the console. After that, we use the do-while loop which keeps asking the user for input until they enter a valid choice. The int.TryParse() method is used to convert the user's input to an integer, and the value is checked to ensure it is within the range of valid choices. If the user enters an invalid choice, they will be prompted to enter a valid choice. Finally, we display a message indicating whether the user was correct or not and then show them their score.
+            
+            //At the end of the quiz, the user's score out of 5 is displayed and we ask them if they want to play the quiz again (yes or no). If their choice is yes (y) then we restart the quiz from the level selection part and if their choice is no (n) then we print a goodbye message on the screen and exit the program.
 
         }// End of Quiz method.
     }
