@@ -99,7 +99,7 @@
             {
                 Console.WriteLine(questions[i]); // Print the current question to the screen
 
-                bool validInput = false; // Declare a variable called "validInput" and set it to false
+                bool validInput = false; // Declare a Boolean called "validInput" and set it to false
 
                 do // Ask the user to enter their answer and validate their input
                 {
