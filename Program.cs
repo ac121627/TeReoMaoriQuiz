@@ -49,7 +49,7 @@
 
             int[] correctAnswerIndex = { 1, 0, 0, 1, 0 }; // Declare an array called "correctAnswerIndex" that contains the index of the correct answer for each question
 
-            bool choice;
+            bool choice = false; 
 
             // Greet the user and ask for their name
             Console.Write("\t\tWelcome to my Te Reo Māori Quiz!\nPlease enter your name to begin: ");
@@ -75,15 +75,15 @@
 
                 // Launch the selected level
                 Console.Clear();
-                if (level == "e")
+                if (level.Equals("e"))
                 {
                     Quiz(userName, eQuestions, eAnswers, correctAnswerIndex);
                 }
-                else if (level == "n")
+                else if (level.Equals("n"))
                 {
                     Quiz(userName, nQuestions, nAnswers, correctAnswerIndex);
                 }
-                else if (level == "h")
+                else if (level.Equals("h"))
                 {
                     Quiz(userName, hQuestions, hAnswers, correctAnswerIndex);
                 }
@@ -92,7 +92,7 @@
                 Console.Write("\nDo you want to restart the quiz? (Y/N)\n\nEnter your choice here:");
                 string restart = Console.ReadLine().ToLower();
 
-                while (!restart.Equals("y") && !restart.Equals("n")) // Validate the user's restart the quiz choice
+                while (!restart.Equals("y") && !restart.Equals("n")) // Validate the user's choice if he wants to restart the quiz
                 {
                     Console.Write("Please enter a valid choice (Y or N): ");
                     restart = Console.ReadLine().ToLower();
@@ -103,22 +103,17 @@
                 {
                     choice = true; // Set choice to true if the user wants to restart
                 }
-                else
-                {
-                    choice = false; // Set choice to false if the user wants to exit the program
-                }
-
-            } while (choice != false);
+            } while (choice == true);
 
             Console.WriteLine(userName + ", thank you for playing my quiz. Goodbye!");
 
         }// End of Main method.
         static void Quiz(string userName, string[] questions, string[][] answers, int[] correctAnswerIndex)
         {
+            int userAnswerIndex, score = 0; // Declare a variable called "userAnswerIndex" to store the user's answer and declare the variable "score" setting it to 0.
+
             // Print a welcome message to the screen, using the "userName" parameter
             Console.WriteLine("Welcome " + userName + "!\n\nIn this quiz, you'll be asked 5 questions about Māori words. Choose the correct answer from the options provided.\n");
-
-            int userAnswerIndex, score = 0; // Declare a variable called "userAnswerIndex" to store the user's answer and declare the variable "score" setting it to 0.
 
             for (int i = 0; i < questions.Length; i++) // Loop through each question in the quiz, "i" represents the question index
             {
@@ -129,7 +124,7 @@
                     Console.WriteLine($"{j + 1}. {answers[i][j]}");
                 }
 
-                bool validInput = false; // Declare a variable called "validInput" to ensure the user enters a valid answer
+                bool validInput = false; // Declare a variable called "validInput" and set it to false, to ensure the user enters a valid answer
 
                 do // Ask the user to enter their answer and validate their input
                 {
@@ -171,11 +166,6 @@
 
             // Display the final score and completion message
             Console.WriteLine($"Congratulations, {userName}! You have completed this Level and scored {score} out of 5.");
-
-            if (score == 5)
-            {
-                Console.WriteLine("Perfect score! Well done!");
-            }
 
             //In this code, we first define an array of questions and an array of answers. We also have an array for the correct answers. The 2D array is used to allow for easy access to the answer choices for each question in the quiz. The program can loop through each row of the array to display the answer choices for the current question, and can access the correct answer for each question using the index of the correct answer stored in the "correctAnswerIndex" array.
 
