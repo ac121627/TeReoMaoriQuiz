@@ -5,25 +5,25 @@
         static void Main()
         {
             string[] eQuestionsAndAnswers = { // Declare an array called "eQuestionAndAnswers" that contains the quiz questions and answers for the Easy level
-                  "Q1) What is the Māori word for Hello?\n1. Papa\n2. Kia Ora\n3. Manaakitanga\n4. Haere ra",
-                  "Q2) What is the Māori word for Family?\n1. Whanau\n2. Waka\n3. Kikorangi\n4. Pango" ,
-                  "Q3) What is the Māori word for Love?\n1. Aroha\n2. Ahiahi Pai\n3. Papura\n4. Parauri" ,
-                  "Q4) What is the Māori word for Food?\n1. Ngako\n2. Kai\n3. Mea Atu\n4. Roopu" ,
-                  "Q5) What is the Māori word for Mountain?\n1. Maunga\n2. Ua\n3. Aotearoa\n4. Koropiko"
+                  "Q1) What is the Māori word for Hello? \n1. Papa\n2. Kia Ora\n3. Manaakitanga\n4. Haere ra",
+                  "Q2) What is the Māori word for Family? \n1. Whanau\n2. Waka\n3. Kikorangi\n4. Pango" ,
+                  "Q3) What is the Māori word for Love? \n1. Aroha\n2. Ahiahi Pai\n3. Papura\n4. Parauri" ,
+                  "Q4) What is the Māori word for Food? \n1. Ngako\n2. Kai\n3. Mea Atu\n4. Roopu" ,
+                  "Q5) What is the Māori word for Mountain? \n1. Maunga\n2. Ua\n3. Aotearoa\n4. Koropiko"
             };
             string[] nQuestionsAndAnswers = { // Questions and answers for Normal level
-                  "Q1) What is the Māori word for Land?\n1. Rangatira\n2. Whenua\n3. Whare\n4. Tangata",
-                  "Q2) What is the Māori word for River?\n1. Awa\n2. Moana\n3. Wai\n4. Rangi",
-                  "Q3) What is the Māori word for Hear?\n1. Rongo\n2. Whakarongo Mai\n3. Hapa\n4. Parauri",
-                  "Q4) What is the Māori word for You?\n1. Ahau\n2. Koe\n3. Matou\n4. Ratou",
-                  "Q5) What is the Māori word for Earth?\n1. Papatūānuku\n2. Tangaroa\n3. Tāne\n4. Rangi"
+                  "Q1) What is the Māori word for Land? \n1. Rangatira\n2. Whenua\n3. Whare\n4. Tangata",
+                  "Q2) What is the Māori word for River? \n1. Awa\n2. Moana\n3. Wai\n4. Rangi",
+                  "Q3) What is the Māori word for Hear? \n1. Rongo\n2. Whakarongo Mai\n3. Hapa\n4. Parauri",
+                  "Q4) What is the Māori word for You? \n1. Ahau\n2. Koe\n3. Matou\n4. Ratou",
+                  "Q5) What is the Māori word for Earth? \n1. Papatūānuku\n2. Tangaroa\n3. Tāne\n4. Rangi"
             };
             string[] hQuestionsAndAnswers = { // Questions and answers for Hard level
-                  "Q1) What is the Māori word for Carving?\n1. Tekau\n2. Whakairo\n3. Tāniko\n4. Pango",
-                  "Q2) What is the Māori word for Weaving?\n1. Raranga\n2. Poti\n3. Moana\n4. Ngā mihi",
-                  "Q3) What is the Māori word for Clothing?\n1. Kakahu\n2. Māra\n3. Rākau\n4. Matimati",
-                  "Q4) What is the Māori word for Plant?\n1. Whangi\n2. Tipu\n3. Tī\n4. Tuhi",
-                  "Q5) What is the Māori word for Lieutenant?\n1. Rutene\n2. Ringa\n3. Hauhautanga\n4. Whanui"
+                  "Q1) What is the Māori word for Carving? \n1. Tekau\n2. Whakairo\n3. Tāniko\n4. Pango",
+                  "Q2) What is the Māori word for Weaving? \n1. Raranga\n2. Poti\n3. Moana\n4. Ngā mihi",
+                  "Q3) What is the Māori word for Clothing? \n1. Kakahu\n2. Māra\n3. Rākau\n4. Matimati",
+                  "Q4) What is the Māori word for Plant? \n1. Whangi\n2. Tipu\n3. Tī\n4. Tuhi",
+                  "Q5) What is the Māori word for Lieutenant? \n1. Rutene\n2. Ringa\n3. Hauhautanga\n4. Whanui"
             };
 
             bool choice = false; // Declare a boolean called choice and set it to false
@@ -133,7 +133,7 @@
                     Console.WriteLine($"\nIncorrect. The correct answer is {correctAnswerIndex[i] + 1}\n");
                 }
 
-                Console.WriteLine("Your score is: " + score + "\nPlease press any key to continue."); 
+                Console.WriteLine("Your score is: " + score + "\nPlease press any key to continue.");
                 Console.ReadKey(); Console.Clear();
 
             } // End of for loop
@@ -142,7 +142,7 @@
             Console.WriteLine($"Congratulations, {userName}! You have completed this Level and scored {score} out of 5.");
 
             //In this code, we first define an array of questions and answers. Next, we display the question and the answer choices using a for loop. We then prompt the user to enter their answer and read their input from the console. After that, we use the do-while loop which keeps asking the user for input until they enter a valid choice. The int.TryParse() method is used to convert the user's input to an integer, and the value is checked to ensure it is within the range of valid choices. If the user enters an invalid choice, they will be prompted to enter a valid choice. Finally, we display a message indicating whether the user was correct or not and then show them their score.
-            
+
             //At the end of the quiz, the user's score out of 5 is displayed and we ask them if they want to play the quiz again (yes or no). If their choice is yes (y) then we restart the quiz from the level selection part and if their choice is no (n) then we print a goodbye message on the screen and exit the program.
 
         }// End of Quiz method.
