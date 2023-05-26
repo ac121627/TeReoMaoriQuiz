@@ -26,22 +26,23 @@
                   "Q5) What is the Māori word for Lieutenant? \n1. Rutene\n2. Ringa\n3. Hauhautanga\n4. Whanui"
             };
 
-            bool choice = false; // Declare a boolean called choice and set it to false
+            const int MAXLENGTHNAME = 20; // Declare a constant and assign it the value of 20
+
+            bool exit = false; // Declare a boolean called choice and set it to false
 
             // Greet the user and ask for their name
             Console.Write("\t\tWelcome to my Te Reo Māori Quiz!\nPlease enter your name to begin: ");
             string userName = Console.ReadLine();
 
-            while (string.IsNullOrEmpty(userName)) // Validate the user's name
+            while (string.IsNullOrEmpty(userName) || userName.Length > MAXLENGTHNAME) // Validate the user's name
             {
-                Console.Write("Please enter a name with at least 1 letter: ");
+                Console.Write("Please enter a name with at least 1 letter and less than 20 characters: ");
                 userName = Console.ReadLine();
             }
 
             do
             {   // Ask the user which level they want to play
                 Console.Write($"\nHello {userName}! This quiz has 3 levels:\nPress E for Easy level\nPress N for Normal level\nPress H for Hard level\n\nEnter your choice here: ");
-
                 string level = Console.ReadLine().ToLower();
 
                 while (level != "e" && level != "n" && level != "h") // Validate the user's level choice
@@ -78,10 +79,10 @@
                 Console.Clear();
                 if (restart.Equals("n"))
                 {
-                    choice = true; // Set choice to true if the user doesn't want to restart the quiz
+                    exit = true; // Set choice to true if the user doesn't want to restart the quiz
                 }
 
-            } while (!choice);
+            } while (!exit);
 
             Console.WriteLine(userName + ", thank you for playing my quiz. Goodbye!");
 
@@ -133,9 +134,8 @@
                     Console.WriteLine($"\nIncorrect. The correct answer is {correctAnswerIndex[i] + 1}\n");
                 }
 
-                Console.WriteLine("Your score is: " + score + "\nPlease press any key to continue.");
+                Console.WriteLine("Your score is: " + score + "\nPlease press any key to continue."); 
                 Console.ReadKey(); Console.Clear();
-
             } // End of for loop
 
             // Display the final score and level completion message
