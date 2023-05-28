@@ -26,7 +26,7 @@
                   "Q5) What is the Māori word for Lieutenant? \n1. Rutene\n2. Ringa\n3. Hauhautanga\n4. Whanui"
             };
 
-            const int MAXLENGTHNAME = 20; // Declare a constant and assign it the value of 20
+            const int MaxNameLength = 20; // Declare a constant and assign it the value of 20
 
             bool exit = false; // Declare a boolean called choice and set it to false
 
@@ -34,7 +34,7 @@
             Console.Write("\t\tWelcome to my Te Reo Māori Quiz!\nPlease enter your name to begin: ");
             string userName = Console.ReadLine();
 
-            while (string.IsNullOrEmpty(userName) || userName.Length > MAXLENGTHNAME) // Validate the user's name
+            while (string.IsNullOrEmpty(userName) || userName.Length > MaxNameLength) // Validate the user's name
             {
                 Console.Write("Please enter a name with at least 1 letter and less than 20 characters: ");
                 userName = Console.ReadLine();
