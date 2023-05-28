@@ -138,7 +138,7 @@
                 Console.ReadKey(); Console.Clear();
             } // End of for loop
 
-            // Display the final score and level completion message
+            // Display their "congratulations for finishing the level" message and their final score 
             Console.WriteLine($"Congratulations, {userName}! You have completed this Level and scored {score} out of 5.");
 
             //In this code, we first define an array of questions and answers. Next, we display the question and the answer choices using a for loop. We then prompt the user to enter their answer and read their input from the console. After that, we use the do-while loop which keeps asking the user for input until they enter a valid choice. The int.TryParse() method is used to convert the user's input to an integer, and the value is checked to ensure it is within the range of valid choices. If the user enters an invalid choice, they will be prompted to enter a valid choice. Finally, we display a message indicating whether the user was correct or not and then show them their score.
