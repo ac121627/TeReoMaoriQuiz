@@ -77,7 +77,7 @@
                 }
 
                 Console.Clear();
-                if (restart.Equals("n"))
+                if (restart.Equals("y"))
                 {
                     exit = true; // Set choice to true if the user doesn't want to restart the quiz
                 }
