@@ -50,9 +50,9 @@
                     Console.Write("Please enter a valid choice (E, N, or H): ");
                     level = Console.ReadLine().ToLower();
                 }
+                Console.Clear();
 
                 // Launch the selected level
-                Console.Clear();
                 if (level.Equals("e"))
                 {
                     Quiz(userName, eQuestionsAndAnswers);
